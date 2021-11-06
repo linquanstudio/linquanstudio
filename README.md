@@ -12,4 +12,4 @@
 
 ## Repositories
 
-* [商店日記](https://github.com/linquanstudio/diary)
+* [商店日記](diary)
