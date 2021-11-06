@@ -12,4 +12,4 @@
 
 ## Repositories
 
-* [商店日記](diary)
+* [商店日記](diary.md)
