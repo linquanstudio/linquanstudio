@@ -17,7 +17,7 @@ Gnu Emacsのウィンドウの表示桁数を減らして、縦長に書くよ�
 同じ感覚で書けるようにならないか。Gnu Emacsのウィンドウの表示桁数を減らして、
 縦長に書くようにすると、プログラムも文章も同じ感覚で書けるようにならないか。
 
-Banford was a small, thin, delicate thing with spectacles[^1].
+Banford was a small, thin, delicate thing with spectacles[^1-1].
 She, however, was the principal investor[^2], for March had little or no money.
 
 Banford’s father, who was a tradesman in Islington, gave his daughter the start,
@@ -35,7 +35,7 @@ Then the two girls were left alone.
 		But unfortunately the old man died after he had been at Bailey Farm for a year.
 		Then the two girls were left alone.
 
-[^1]:LDOCE>  spectacles [plural] formal or old-fashioned glasses that help you see
+[^1-1]:LDOCE>  spectacles [plural] formal or old-fashioned glasses that help you see
 [^2]:CALD>invest verb [I or T]
 to put money, effort, time etc. into something to make a profit or get an advantage:
  The institute will invest 5 million in the project.
