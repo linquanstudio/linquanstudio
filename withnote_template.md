@@ -41,8 +41,8 @@ They had, moreover, Banford’s old grandfather living with them at the start.
 He had been a farmer.
 But unfortunately the old man died after he had been at Bailey Farm for a year.
 Then the two girls were left alone.
-	But unfortunately the old man died after he had been at Bailey Farm for a year.
-	Then the two girls were left alone.
-	But unfortunately the old man died after he had been at Bailey Farm for a year.
-	Then the two girls were left alone.
+		But unfortunately the old man died after he had been at Bailey Farm for a year.
+		Then the two girls were left alone.
+		But unfortunately the old man died after he had been at Bailey Farm for a year.
+		Then the two girls were left alone.
 
