@@ -35,7 +35,7 @@ Then the two girls were left alone.
 		But unfortunately the old man died after he had been at Bailey Farm for a year.
 		Then the two girls were left alone.
 
-[^1-1]:LDOCE>  spectacles [plural] formal or old-fashioned glasses that help you see
+[^1-1]:LDOCE>spectacles [plural] formal or old-fashioned glasses that help you see
 [^1-2]:CALD>invest verb [I or T]
 to put money, effort, time etc. into something to make a profit or get an advantage:
  The institute will invest 5 million in the project.
