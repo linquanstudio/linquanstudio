@@ -18,11 +18,9 @@ Gnu Emacsのウィンドウの表示桁数を減らして、縦長に書くよ�
 縦長に書くようにすると、プログラムも文章も同じ感覚で書けるようにならないか。
 
 Banford was a small, thin, delicate thing with spectacles[^1].
-
 [^1]:LDOCE>  spectacles [plural] formal or old-fashioned glasses that help you see
 
 She, however, was the principal investor[^2], for March had little or no money.
-
 [^2]:CALD>invest verb [I or T]
 to put money, effort, time etc. into something to make a profit or get an advantage:
  The institute will invest 5 million in the project.
