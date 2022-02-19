@@ -9,7 +9,3 @@
 * [Tumblr](https://linquanstudio.tumblr.com/)
 * [Qiita](https://qiita.com/linquanstudio)
 * [Zenn](https://zenn.dev/linquanstudio)
-
-## Repositories
-
-* [商店日記](diary.md)
