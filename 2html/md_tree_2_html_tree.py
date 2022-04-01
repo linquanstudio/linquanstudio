@@ -61,9 +61,9 @@ def doit(src, dest):
                         with Image.open(img_path) as img:
                             width = img.width
                     #print(img_path, ext, width)
-                    if width is not None and width > 720:
+                    if width is None or width > 720:
                         width = 780
-                    t['width'] = width
+                    t['width'] = str(width)
                     t['style'] = 'display:block; margin:auto;'
                 # 出力
                 dest_path = F"{base_ext[0]}.html"
