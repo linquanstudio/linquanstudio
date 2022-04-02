@@ -51,3 +51,4 @@ trueならページ先頭に目次を生成する。
 
 
 [Imgur](https://imgur.com/dSD7sBI)
+[Imgur](https://i.imgur.com/dSD7sBI.png)
