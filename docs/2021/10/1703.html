@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/test-index.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://linquanstudio.github.io/linquanstudio/image/studio_icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="商店主の仕込み" />
+<meta property="og:description" content="
+[商店主の仕込み]満を持して自家製CMSシステム開発開始。自家消費目的。永遠にβ版。
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<p>
+ 昨夜よりxcrawl、いまだにパスが通らないが行きつ戻りつしてるうちに問題になるはほぼCSPの制限によることが見えてきた。
+このあたりをちゃんと理解しておかないとwebサービス全般の構築は難しいということになる。
+</p>
+<p class="code">
+ W3CのCSP3だが、まだ実装が全てに対応できているわけではないらしい。試行錯誤中
+ <code>
+  navigate-to:
+ </code>
+ を試したら怒られた。
+</p>
+<p class="code">
+ 結構嵌ったのがインラインJavaScriptで、
+ <code>
+  &lt;script&gt;
+ </code>
+ タグのブロックだけでなく、Formの部品の
+ <code>
+  onClick()
+ </code>
+ などの中のJavaScriptも対象になるのだった。
+</p>
+<p>
+ これを回避しようとすると、自然と以下のようなことをすることになる。
+</p>
+<ol>
+ <li>
+  ある程度構造があって各tagにclassやidを割り振って構築用のjsを読み込むようにしたhtmlテンプレートを作る
+ </li>
+ <li>
+  拡張機能からhtmlテンプレートを表示
+ </li>
+ <li>
+  htmlテンプレートに読み込まれたjsがテンプレートに部品を載せていく
+ </li>
+ <li>
+  background.jsとの通信用のportを作成して以後の通信はこれを使う
+ </li>
+</ol>
+<p>
+ 雛形テンプレートがなんでそういう形になってるのかやっと理解できた。
+</p>
+<p>
+ 一日かかってなんとかDBへの保存までできた。htmlテンプレート内のFormは原始的なFormでOKのよう。
+</p>
+<p>
+ <strong>
+  [参考]
+ </strong>
+ *
+ <a href="https://w3c.github.io/webappsec-csp/#navigate-to" target="_blank">
+  Content Security Policy Level 3
+ </a>
+ *
+ <a href="https://techblog.securesky-tech.com/entry/2020/05/21/" target="_blank">
+  CSP(コンテンツセキュリティポリシー)について調べてみた
+ </a>
+ *
+ <a href="https://www.kohei.dev/ja-jp/posts/getting-started-with-content-security-policy" target="_blank">
+  Content Security Policyを設定してウェブサイトをXSSから守る
+ </a>
+ *
+ <a href="https://www.wenyanet.com/opensource/ja/600081463ec4a200fa782726.html" target="_blank">
+  セキュリティヘッダーチェッカー
+ </a>
+ *
+ <a href="https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy" target="_blank">
+  Content Security Policy:ブラウザ拡張機能:MDN
+ </a>
+ *
+ <a href="https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy" target="_blank">
+  content_security_policy:manifest.json:ブラウザ拡張機能:MDN
+ </a>
+</p>
+</body>
+</html>

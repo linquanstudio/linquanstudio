@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ja">
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/test-index.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://linquanstudio.github.io/linquanstudio/image/studio_icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="商店主の仕込み" />
+<meta property="og:description" content="
+[商店主の仕込み]満を持して自家製CMSシステム開発開始。自家消費目的。永遠にβ版。
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>
+ 2021年秋 (9月〜11月)
+</h1>
+<h2>
+ 1.
+ 10/14 (木)
+</h2>
+<p>
+ SwiftUI Tutorials、終ったぜ!
+</p>
+<p>
+ SwiftUIとUIKitの違いは？
+</p>
+<p>
+ <strong>
+  [参考]
+ </strong>
+ *
+ <a href="https://note.com/kaigian/n/n3fb2ee271cad" target="_blank">
+  SwiftUIとUIKitを組み合わせる
+ </a>
+</p>
+<h2>
+ 2.
+ 10/13 (水)
+</h2>
+<p>
+ 仕事用のみに限るつもりはない日記なのに、仕事の話題ばかりが増えていく。
+</p>
+<p class="code">
+ 業務用M1 MacBook Airにtmuxを
+ <code>
+  brew install tmux
+ </code>
+ した。
+</p>
+<p>
+ ウェブアクセシビリティについて論議が起きている。
+こちらとしても、意識してないふりしつつ意識していくつもり。
+ <a href="https://waic.jp/files/cheatsheet/waic_jis-x-8341-3_cheatsheet_201812.pdf" target="_blank">
+  JIS X 8341-3:2016 達成基準 早見表（レベルA &amp; AA）
+ </a>
+</p>
+<p class="code">
+ "Swift UI Tutorials"、"Working with UI Controls"の"Display a User Profile (1 of 5)"まで終了。
+Folderは
+ <code>
+  AnimatingViewsAndTransitions
+ </code>
+ 、Projectは
+ <code>
+  DrawingPathsAndShapes
+ </code>
+ 。
+</p>
+<h3>
+ Xcode &amp; Swiftお役立ちページ
+</h3>
+<p>
+ <strong>
+  入門
+ </strong>
+ *
+ <a href="https://developer.apple.com/tutorials/swiftui" target="_blank">
+  SuiftUI Tutorials (Apple Developer)
+ </a>
+ - まずはこれを一通りやってみる
+*
+ <a href="https://swift.org/" target="_blank">
+  Swift.org - Welcome to Swift.org
+ </a>
+ - Swift. 言語仕様確認
+*
+ <a href="https://qiita.com/ryupaka/items/54192d304253103c07e9" target="_blank">
+  そのまま使える！iOSアプリを作るためのswiftサンプル集
+ </a>
+ - ほとんどU/Iのサンプル
+*
+ <a href="https://qiita.com/y-some/items/f3432fa2be6577e6b06b" target="_blank">
+  脱・初級者のための学習ソース
+ </a>
+</p>
+<p>
+ <strong>
+  Xcode
+ </strong>
+ *
+ <a href="https://developer.4d.com/4d-for-ios/docs/ja/xcode-overview.html" target="_blank">
+  Xcode ガイド
+ </a>
+ *
+ <a href="https://zenn.dev/kueharx/articles/ebd14c46f02211" target="_blank">
+  XcodeとGithubの連携をしたのでまとめる
+ </a>
+ *
+ <a href="https://qiita.com/kazy_dev/items/feb68f162ec3d91005d3" target="_blank">
+  つい忘れて調べるXcodeの設定〜スキーム追加編〜
+ </a>
+ - Build Target、Schemeの追加
+</p>
+<p>
+ <strong>
+  Swift
+ </strong>
+ *
+ <a href="https://qiita.com/s_emoto/items/deda5abcb0adc2217e86" target="_blank">
+  Codableについて備忘録
+ </a>
+ *
+ <a href="https://qiita.com/maiki055/items/b24378a3707bd35a31a8" target="_blank">
+  どこよりも分かりやすいSwiftの"?"と"!"
+ </a>
+</p>
+<h3>
+ .DS_Storeとdot_clean
+</h3>
+<p>
+ .DS_Storeを作らない設定
+</p>
+<p class="code">
+ <code>
+  % defaults write com.apple.desktopservices DSDontWriteNetworkStores True
+% killall Finder
+ </code>
+</p>
+<p>
+ .DS_Store と._xxx を一括削除する方法 1 コマンドを使って削除する
+</p>
+<p class="code">
+ <code>
+  find . \( -name '.DS_Store' -or -name '._*' \) -delete -print
+ </code>
+</p>
+<ul>
+ <li>
+  <a href="https://lovemac.jp/9906" target="_blank">
+   参考:
+  </a>
+ </li>
+</ul>
+<p>
+ さらに、.gitignoreとの連携も。
+</p>
+<ul>
+ <li>
+  <a href="https://qiita.com/takashimelon/items/def769aaaa1d41cc44d4" target="_blank">
+   参考:.gitignoreで.DS_Storeを削除しよう
+  </a>
+ </li>
+</ul>
+<h3>
+ MVCモデル
+</h3>
+<p>
+ そろそろ真面目にMVCモデルについて理解しておかないといけないかな。
+</p>
+<ul>
+ <li>
+  <a href="https://zenn.dev/dd_sho/articles/36abe63831d909" target="_blank">
+   MVCモデルについて
+  </a>
+ </li>
+</ul>
+<h2>
+ 3.
+ 10/12 (火)
+</h2>
+<p>
+ Apple Developerの
+ <a href="https://developer.apple.com/tutorials/swiftui" target="_blank">
+  Introducing SwiftUI
+ </a>
+ を順番におさらい中。
+やりたいにも係わらずハードル高い印象だったので、黙ってしばらくいわれた通りにやるつもりだが、そうしてみると結構すんなり仕組みは頭に入ってくるようだ。
+しかし「4時間25分で終わるはず」とあるが、無理っぽい。
+</p>
+<p>
+ 一応これで先には進めそうだが、以外にガイドになるような情報がない感じである。
+</p>
+<h2>
+ 4.
+ 10/11 (月)
+</h2>
+<p>
+ Xcodeのエディタのキーバインディング、デフォルトでもEmacsがベースになってるっぽい。
+AndroidStudioもなんとなくそうだし、zshの行エディタもそうだ。
+やっぱりカーソルキーに触らなくて済むと楽だもんな。
+</p>
+<h2>
+ 5.
+ 10/10 (日)
+</h2>
+<p>
+ 来年の春までABEMA TV解約。大谷ロス。
+そろそろまた投資を気にしようかと。coincheckと楽天証券の口座、アプリを確認。
+</p>
+<h3>
+ python:
+ <a href="https://github.com/linquanstudio/python/tree/main/dirlist" target="_blank">
+  dirlist
+ </a>
+</h3>
+<p>
+ <a href="https://addons.mozilla.org/ja/firefox/user/140308/?utm_source=firefox-browser&amp;utm_medium=firefox-browser&amp;utm_content=addons-manager-user-profile-link" target="_blank">
+  Tumblr Post
+ </a>
+ の解析用にディレクトリを再帰的にcrawlしてリストを作成するツールを書いた。pythonらしく、ちゃらっとできてしまったので、各ディレクトリとファイルを一つずつtemplateを使って.svgの図形として出力するようにした。
+</p>
+<p>
+ これはドキュメント整理とかにかなり使えそう。
+</p>
+<h3>
+ GitHub日記
+</h3>
+<p>
+ 仕事の中で業務特有でないコードはGitHubに集めることにする。
+Bitbucketに置いているコードとかを持ってきちゃうとBitbucketに置くものがなくなりそう。
+</p>
+<h3>
+ Swift日記
+</h3>
+<p>
+ さあSwift + Xcodeで開発始めるぜ〜!
+</p>
+<h2>
+ 6.
+ 10/09 (土)
+</h2>
+<h3>
+ 枝豆の保存
+</h3>
+<p>
+ 枝豆買ってなんとなく袋開けずに置いておいたらまずくなっちゃった。体に悪くはなさそうだったので食べたけど。
+反省して保存方法を調べておく。生のまま冷凍保存がよいらしいぞ。
+冷凍すれば一ヶ月もつってさ!
+</p>
+<ul>
+ <li>
+  <a href="https://neirof.com/6838.html" target="_blank">
+   生の枝豆の保存方法！常温と冷蔵庫と冷凍の日持ちを比較 おすすめは？
+  </a>
+ </li>
+</ul>
+<p>
+ しかし、結局のところ大概の食材は冷凍がよいみたいだ。冷凍庫欲しい…。
+2,5000円くらいで買えそうだが。
+</p>
+<h3>
+ <a href="https://www.youtube.com/watch?v=3sGr0aH1zSk" target="_blank">
+  Jeff Beck Group - Reel Masters 1971
+ </a>
+</h3>
+<ul>
+ <li>
+  <a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fisme.hayashi%2Fposts%2F10226625428764179&amp;show_text=true&amp;width=500" target="_blank">
+   取掛
+  </a>
+ </li>
+</ul>
+<p>
+ こんなの出てたんですね。"Rough and Ready"の別テイク集？未発表曲も１曲あってMaxが頑張ってます。
+全体にいい演奏いい録音です。
+"Situation"が特にいいテイクあり。
+"Got the Feeling"、"Situation"はなんか発売されたテイクは若干テープスピード遅くなってマスタリングされてたとか？
+</p>
+<ul>
+ <li>
+  <a href="https://www.navyblue-sound.jp/product/608?fbclid=IwAR3dYwY8m7M_zXedlkA646hfkWGdSSDCf655EszWRm7HiI9n57dEbQ2-nT8" target="_blank">
+   参考:JEFF BECK GROUP - ROUGH AND READY REEL MASTERS 2nd Press(1CD+Bonus CD) IMPORT TITLE
+  </a>
+ </li>
+</ul>
+<h3>
+ Browser Extension:
+ <a href="https://github.com/linquanstudio/xcrawl" target="_blank">
+  xcrawl
+ </a>
+</h3>
+<p>
+ 画像をWeb上で収集するためのextension。
+localのデータベースに情報を収集する。
+これができたらさらにデータベースの情報からuploadのフォームを自動入力するextensionを作れば、散発的に集めた画像をまとめてuploadできる。
+</p>
+<p>
+ ひとまず雛形になるaddonが見つかったのでiconや名前を変えて動作することを確認、今日はここまで。
+</p>
+<h3>
+ <a href="https://bunshun.jp/articles/-/49082" target="_blank">
+  「このままでは国家財政は破綻する」矢野康治財務事務次官が“バラマキ政策”を徹底批判
+ </a>
+</h3>
+<ul>
+ <li>
+  <a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fisme.hayashi%2Fposts%2F10226622576012862&amp;show_text=true&amp;width=500" target="_blank">
+   取掛
+  </a>
+ </li>
+</ul>
+<p>
+ 文春オンラインの記事。
+現財務次官が雑誌にこういう記事を出すことの政治的問題性はおく。
+</p>
+<p>
+ 今までずっとワタクシもこの方面からのこういう声はためにするもの、と思ってきたんだけど、最近はきっと本当に真摯に考えた末な可能性大という推測に変わってきた。
+</p>
+<p>
+ 合成の誤謬とか局所最適と全体最適とかいわれるが、財務省がもしこのようで変わらないとすれば、全体最適をみるパートをどこかに作ってそこに制御させないといけないだろう。というか、本来それが政治の役割。なのだが、政治にそれを期待するのは無理だろう。
+</p>
+<p>
+ 如之何。
+</p>
+<h2>
+ 7.
+ 10/05 (火)
+</h2>
+<h3>
+ <a href="https://weekly-economist.mainichi.jp/articles/20211005/se1/00m/020/067000c" target="_blank">
+  十倉雅和　経団連会長　宇沢先生の「社会的共通資本」に学ぶ　企業活動に“社会性”を取り戻す
+ </a>
+</h3>
+<p>
+ 週刊エコノミストOnlineの記事。
+T大経済出て一流企業に就職、社長にまで上ってはじめて宇沢経済思想に開眼とは、ちとナイーブ過ぎないか。
+とはいえ、世に出てサラリーマンとして成功できる人というのはそんなものなのかも、そこまで行っても新しい見方ができるようになるというのはむしろ貴重な存在？
+経団連会長として「ソーシャル・ポイント・オブ・ビュー（社会性）」をキーワードにした、とのこと。
+何かこれまでと変わってくるところがあるだろうか。
+</p>
+<p>
+ ※岸田内閣の「新しい資本主義実現会議」の有識者構成員にも入ったようなので、ここは生温かくみていくところか。
+</p>
+<h2>
+ 8.
+ 10/01 (金)
+</h2>
+<p>
+ ~~pythonでのmarkdown→html→pdf変換のシナリオ。~~
+上記以降は
+ <a href="https://github.com/linquanstudio/python/tree/main/from_markdown_2_pdf" target="_blank">
+  商店内リポジトリ
+ </a>
+ に移動した。
+</p>
+<h2>
+ 9.
+ 09/28 (火)
+</h2>
+<h3>
+ tmux
+</h3>
+<p>
+ あちこちのサーバで作業することが増えている。
+それに伴ない、ターミナルウィンドウがデスクトップにたくさんあるのが鬱陶しくなってくる。
+長時間の作業を流しっ放しが多いのだがssh上で実行中表示や入力がないとセッションを切られることがある。
+TCP keepaliveを調整するのだが、なぜかうまく行かないことも。
+で、tmuxというのがあるのを知った。
+</p>
+<ul>
+ <li>
+  <a href="https://qiita.com/ha4gu/items/aebe9207904f52ee4fb6" target="_blank">
+   UbuntuやCentOSに最新のtmuxを導入する
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/maachan_9692/items/a9f81398e0d457c9e48c" target="_blank">
+   Ubuntu で tmux を使いたい！
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/shoma2da/items/2e68c1e59938eb0c2f83#%E8%A4%87%E6%95%B0%E3%81%AE%E7%94%BB%E9%9D%A2%E3%82%84%E9%A0%98%E5%9F%9F%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%99" target="_blank">
+   tmuxを使いこなそう（ウインドウ、ペイン、セッション、アタッチ、デタッチ）
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/shin-ch13/items/9d207a70ccc8467f7bab" target="_blank">
+   tmuxを必要最低限で入門して使う
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/nmrmsys/items/03f97f5eabec18a3a18b" target="_blank">
+   tmuxチートシート
+  </a>
+ </li>
+</ul>
+<h3>
+ Pages
+</h3>
+<p>
+ GitHubに来たのは情報発信の内容を集積・統合したいということで、元ネタ(これもその一部)をどこでも作ってここに集め、ここから各所に(できれば自動的に)発信したいため。
+</p>
+<p>
+ で、まずいわゆる
+ <a href="https://linquanstudio.github.io/linquanstudio/" target="_blank">
+  ランディングページ
+ </a>
+ を作ってみた。
+</p>
+<ol>
+ <li>
+  Pagesに渡す静的ページやその元データを置くための公開repositoryを作成
+ </li>
+ <li>
+  元データはここになければいけないわけではなく、いろんな場所から適宜htmlを生成して静的ページのディレクトリに置く
+ </li>
+ <li>
+  別に処理用のrepositoryを作成してそこに公開repositoryのREADME.mdからindex.htmlを生成するpythonスクリプトを置く
+ </li>
+</ol>
+<p>
+ ひとまずここまで。
+</p>
+<h2>
+ 10.
+ 09/26 (日)
+</h2>
+<p>
+ 「ソフト開発の…」と謳っている割には情報発信の方法が開発されていないのが懸案だった我が商店。
+一念発起して整備を始めようとGitHubに来ました。
+</p>
+</body>
+</html>
