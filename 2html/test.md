@@ -1,51 +1,51 @@
-# こんなのは効く？
-
 ---
-title: "iOSでセンサー値を読み込む"
-date: 2021-10-15T11:00:00+09:00
+title: "お手製CMS markdownのFront Matter定義"
+date: 2022-04-02T13:22:00+09:00
 draft: true
+private: true
+image: https://i.imgur.com/dSD7sBI.png
 toc: false
-images:
 tags:
   - draft
   - 日記
   - 開発
+  - python
+  - disk
 ---
 
-SwiftUI Tutorials、終ったぜ!
+CMSがお手製ならFront Matter変数もお手製。
+一応互換性は考慮しているけども。
 
-SwiftUIとUIKitの違いは？
+### title
 
-__[参考]__
-* [SwiftUIとUIKitを組み合わせる](https://note.com/kaigian/n/n3fb2ee271cad)
+ページタイトル。
+`og:title`にもなる。
 
-## <a name="20211013"></a> 10/13 (水)
+### date
 
-仕事用のみに限るつもりはない日記なのに、仕事の話題ばかりが増えていく。
+日付。
+用途は未定、なくすかも。
 
-業務用M1 MacBook Airにtmuxを`brew install tmux`した。
+### draft
 
-ウェブアクセシビリティについて論議が起きている。
-こちらとしても、意識してないふりしつつ意識していくつもり。
-[JIS X 8341-3:2016 達成基準 早見表（レベルA & AA）](https://waic.jp/files/cheatsheet/waic_jis-x-8341-3_cheatsheet_201812.pdf)
+trueならdraftモードの時のみhtml生成される。
 
-"Swift UI Tutorials"、"Working with UI Controls"の"Display a User Profile (1 of 5)"まで終了。
-Folderは`AnimatingViewsAndTransitions`、Projectは`DrawingPathsAndShapes`。
+### private
 
-### Xcode & Swiftお役立ちページ
+trueならprivateモードの時のみ生成される。
 
-__入門__
-* [SuiftUI Tutorials (Apple Developer)](https://developer.apple.com/tutorials/swiftui) - まずはこれを一通りやってみる
-* [Swift.org - Welcome to Swift.org](https://swift.org/) - Swift. 言語仕様確認
-* [そのまま使える！iOSアプリを作るためのswiftサンプル集](https://qiita.com/ryupaka/items/54192d304253103c07e9) - ほとんどU/Iのサンプル
-* [脱・初級者のための学習ソース](https://qiita.com/y-some/items/f3432fa2be6577e6b06b)
+### image
 
-__Xcode__
-* [Xcode ガイド](https://developer.4d.com/4d-for-ios/docs/ja/xcode-overview.html)
-* [XcodeとGithubの連携をしたのでまとめる](https://zenn.dev/kueharx/articles/ebd14c46f02211)
-* [つい忘れて調べるXcodeの設定〜スキーム追加編〜](https://qiita.com/kazy_dev/items/feb68f162ec3d91005d3) - Build Target、Schemeの追加
+サムネイル画像のurl。
+`og:image`にも使う。
 
-__Swift__
-* [Codableについて備忘録](https://qiita.com/s_emoto/items/deda5abcb0adc2217e86)
-* [どこよりも分かりやすいSwiftの"?"と"!"](https://qiita.com/maiki055/items/b24378a3707bd35a31a8)
-* []()
+### toc
+
+trueならページ先頭に目次を生成する。
+実装するかどうかは保留。
+
+### tags
+
+タグの指定。
+階層構造については検討中。
+

@@ -2,24 +2,16 @@ import yaml
 import pprint
 import re
 
-with open('test.md', 'r') as f: md = f.readlines()
-
-# yamlのブロックを抽出
-
-joined = ''.join(md)
-m = re.match(r'^-+$(.*)', joined, flags=re.MULTILINE)
-print(m.groups())
-
-
-#for l in md:
-#    m = re.match(r'title:(.+)\n', l)
-#    if m is not None:
-#        print(m.groups())
-
-    
-                  
-#s = 'aaa@xxx.com'
-#m = re.match(r'([a-z]+)@([a-z]+)\.([a-z]+)', s)
-#print(m)
-# <re.Match object; span=(0, 11), match='aaa@xxx.com'>
-#print(m.groups())
+with open('test.md', 'r') as f: md = [ l.strip() for l in f.readlines() ]
+# yamlのブロックとmarkdownを分ける
+ym = []
+if md[0] == '---':
+    md.pop(0)
+    while md[0] != '---':
+        ym.append(md.pop(0))
+    md.pop(0)
+ym = yaml.safe_load('\n'.join(ym))
+print('[yaml]')
+print(ym)
+print('[markdown')
+print(md)
