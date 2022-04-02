@@ -31,7 +31,6 @@ def doit(src, dest):
         src_relative = F"{src_root}{os.sep}{ls['name']}" if src_root != '' else ls['name']
         src_path= F"{src_root}{os.sep}{ls['name']}"
         dest_path = F"{dest}{os.sep}{src_relative}"
-        print(src_relative, src_path, dest_path)
         if ls['is_directory']:
             os.makedirs(dest_path, exist_ok=True)
         else:
@@ -39,6 +38,7 @@ def doit(src, dest):
             #print(src_path, dest_path, base_ext)
             if not base_ext[1] in [ '.md' ]:
                 #shutil.copy2(src_path, dest_path)
+                print(F"[copy] {src_relative} --> {dest_path}")
                 shutil.copy2(src_relative, dest_path)
             else:
                 # markdownをhtmlに変換
@@ -75,6 +75,7 @@ def doit(src, dest):
                 # 出力
                 dest_path = F"{base_ext[0]}.html"
                 #print(dest_path)
+                print(F"[render] {src_relative} --> {dest_path}")
                 with open(dest_path, 'w') as f:
                     f.write(to_html(soup.prettify(), ls['depth']))
                 
@@ -88,7 +89,11 @@ def to_html(body, depth):
   <!-- <meta property="og:url" content="" /> -->
   <meta property="og:type" content="" />
   <meta property="og:title" content="" />
-  <meta property="og:description" content="商店主の仕込み" />
+  <meta property="og:description" content="
+[商店主の仕込み]
+満を持して自家製CMSシステム開発開始。
+自家消費目的。
+" />
   <meta property="og:site_name" content="林泉商店" />
   <meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />  
   <meta charset="utf-8">
