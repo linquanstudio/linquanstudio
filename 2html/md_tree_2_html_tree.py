@@ -86,12 +86,12 @@ def to_html(body, depth):
 <head
   prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
   <meta charset="utf-8">
-  <!-- <meta property="og:url" content="" /> -->
+  <meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/test-index.html" />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@hayashiisme">
   <meta name="twitter:creator" content="@hayashiisme">
-  <meta name="twitter:image" content="/image/studio_icon.png" />
-  <meta property="og:type" content="" />
+  <meta name="twitter:image" content="https://linquanstudio.github.io/linquanstudio/image/studio_icon.png" />
+  <meta property="og:type" content="article" />
   <meta property="og:title" content="商店主の仕込み" />
   <meta property="og:description" content="
 [商店主の仕込み]満を持して自家製CMSシステム開発開始。自家消費目的。永遠にβ版。
