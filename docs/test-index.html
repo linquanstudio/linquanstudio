@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head
+  prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+  <meta charset="utf-8">
+  <!-- <meta property="og:url" content="" /> -->
+  <meta property="og:type" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="商店主の仕込み" />
+  <meta property="og:site_name" content="林泉商店" />
+  <meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />  
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<hr/>
+<p>
+ title: "お手製CMS markdownのFront Matter定義"
+date: 2022-04-02T13:22:00+09:00
+draft: true
+private: true
+image: https://i.imgur.com/dSD7sBI.png
+toc: false
+tags:
+  - draft
+  - 日記
+  - 開発
+  - python
+  - disk
+</p>
+<hr/>
+<p>
+ CMSがお手製ならFront Matter変数もお手製。
+一応互換性は考慮しているけども。
+</p>
+<h3>
+ title
+</h3>
+<p class="code">
+ ページタイトル。
+ <code>
+  og:title
+ </code>
+ にもなる。
+</p>
+<h3>
+ date
+</h3>
+<p>
+ 日付。
+用途は未定、なくすかも。
+</p>
+<h3>
+ draft
+</h3>
+<p>
+ trueならdraftモードの時のみhtml生成される。
+</p>
+<h3>
+ private
+</h3>
+<p>
+ trueならprivateモードの時のみ生成される。
+</p>
+<h3>
+ image
+</h3>
+<p class="code">
+ サムネイル画像のurl。
+ <code>
+  og:image
+ </code>
+ にも使う。
+</p>
+<h3>
+ toc
+</h3>
+<p>
+ trueならページ先頭に目次を生成する。
+実装するかどうかは保留。
+</p>
+<h3>
+ tags
+</h3>
+<p>
+ タグの指定。
+階層構造については検討中。
+</p>
+<p>
+ <a href="https://imgur.com/dSD7sBI" target="_blank">
+  Imgur
+ </a>
+ <a href="https://i.imgur.com/dSD7sBI.png" target="_blank">
+  Imgur
+ </a>
+</p>
+</body>
+</html>
+    

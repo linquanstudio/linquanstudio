@@ -17,26 +17,33 @@ def dirlist(a, root, depth):
 
 def doit(src, dest):
     #print(src)
+    # srcの全リスト
+    lsr = []
     # srcがディレクトリだったらdestもディレクトリ
     if os.path.isdir(src):
         os.makedirs(dest, exist_ok=True)
-    # srcの全リスト
-    lsr = []
-    dirlist(lsr, src, 0)
+        dirlist(lsr, src, 0)
+    else:
+        sp = os.path.split(src)
+        lsr.append({'root': src, 'name': sp[1], 'is_directory': False, 'depth':0 })
     for ls in lsr:
-        src_relative = F"{ls['root'].split(src)[1]}{os.sep}{ls['name']}"
-        src_path= F"{ls['root']}{os.sep}{ls['name']}"
-        dest_path = F"{dest}{src_relative}"
+        src_root = ls['root'].split(src)[0]
+        src_relative = F"{src_root}{os.sep}{ls['name']}" if src_root != '' else ls['name']
+        src_path= F"{src_root}{os.sep}{ls['name']}"
+        dest_path = F"{dest}{os.sep}{src_relative}"
+        print(src_relative, src_path, dest_path)
         if ls['is_directory']:
             os.makedirs(dest_path, exist_ok=True)
         else:
             base_ext = os.path.splitext(dest_path)
             #print(src_path, dest_path, base_ext)
             if not base_ext[1] in [ '.md' ]:
-                shutil.copy2(src_path, dest_path)
+                #shutil.copy2(src_path, dest_path)
+                shutil.copy2(src_relative, dest_path)
             else:
                 # markdownをhtmlに変換
-                with open(src_path, 'r', encoding='utf-8') as f:
+                #with open(src_path, 'r', encoding='utf-8') as f:
+                with open(src_relative, 'r', encoding='utf-8') as f:
                     md = f.read()
                 soup = BeautifulSoup(markdown.markdown(md), 'html.parser')
                 # aタグをすべてチェック
@@ -75,7 +82,15 @@ def doit(src, dest):
 def to_html(body, depth):
     return F"""<!doctype html>
 <html lang="ja">
-<head>
+<head
+  prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+  <meta charset="utf-8">
+  <!-- <meta property="og:url" content="" /> -->
+  <meta property="og:type" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="商店主の仕込み" />
+  <meta property="og:site_name" content="林泉商店" />
+  <meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />  
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
