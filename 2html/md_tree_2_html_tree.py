@@ -90,9 +90,7 @@ def to_html(body, depth):
   <meta property="og:type" content="" />
   <meta property="og:title" content="" />
   <meta property="og:description" content="
-[商店主の仕込み]
-満を持して自家製CMSシステム開発開始。
-自家消費目的。
+[商店主の仕込み] 満を持して自家製CMSシステム開発開始。自家消費目的。
 " />
   <meta property="og:site_name" content="林泉商店" />
   <meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />  
