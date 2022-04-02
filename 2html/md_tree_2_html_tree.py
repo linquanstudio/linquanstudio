@@ -87,6 +87,9 @@ def to_html(body, depth):
   prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
   <meta charset="utf-8">
   <!-- <meta property="og:url" content="" /> -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@hayashiisme">
+  <meta name="twitter:creator" content="@hayashiisme">
   <meta property="og:type" content="" />
   <meta property="og:title" content="" />
   <meta property="og:description" content="
@@ -95,9 +98,6 @@ def to_html(body, depth):
   <meta property="og:site_name" content="林泉商店" />
   <meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
   <meta property="og:locale" content="ja_JP" />
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@hayashiisme">
-  <meta name="twitter:creator" content="@hayashiisme">
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
