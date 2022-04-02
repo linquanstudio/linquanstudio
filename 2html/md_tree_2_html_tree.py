@@ -90,6 +90,7 @@ def to_html(body, depth):
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@hayashiisme">
   <meta name="twitter:creator" content="@hayashiisme">
+  <meta name="twitter:image" content="/image/studio_icon.png" />
   <meta property="og:type" content="" />
   <meta property="og:title" content="商店主の仕込み" />
   <meta property="og:description" content="
