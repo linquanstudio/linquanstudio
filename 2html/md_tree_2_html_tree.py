@@ -91,7 +91,7 @@ def to_html(body, depth):
   <meta name="twitter:site" content="@hayashiisme">
   <meta name="twitter:creator" content="@hayashiisme">
   <meta property="og:type" content="" />
-  <meta property="og:title" content="" />
+  <meta property="og:title" content="商店主の仕込み" />
   <meta property="og:description" content="
 [商店主の仕込み]満を持して自家製CMSシステム開発開始。自家消費目的。永遠にβ版。
 " />
