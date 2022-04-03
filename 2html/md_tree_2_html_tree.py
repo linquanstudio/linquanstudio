@@ -91,6 +91,9 @@ def md2html(src, dest, depth):
     for t in soup('code'):
         t.parent['class'] = 'code'
     # imgサイズを調整する (外部サイトにある場合も含めて調整に拡張)
+    # ローカルの格納場所 md段階ではどこでも、htmlでは/image/下にランダム名でコピー
+    # リンクのURLも調整する
+    # または最初から/imageに置くか？
     #for t in soup('img'):
     #    ext = os.path.splitext(t['src'])[1]
     #    img_path = F"{ls['root']}{os.sep}{t['src']}"

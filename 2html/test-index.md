@@ -53,3 +53,14 @@ trueならページ先頭に目次を生成する。
 
 [Imgur](https://imgur.com/dSD7sBI)
 [Imgur](https://i.imgur.com/dSD7sBI.png)
+
+| 変数 | 内容 |
+|:----:|:-----|
+| title | ページタイトル |
+| date | 日付 |
+| draft | trueならdraftモードの時のみhtml生成 |
+| private | trueならprivateモードの時のみ生成 |
+| image | サムネイル画像のurl |
+| toc | trueならページ先頭に目次を生成 |
+| tags | タグの指定 |
+
