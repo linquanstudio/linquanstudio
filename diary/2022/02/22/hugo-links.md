@@ -1,13 +1,14 @@
 ---
-title: "Hugoに関する記事へのリンク"
+title: Hugoに関する記事へのリンク
+description: 
 date: 2022-02-22T11:05:58+09:00
 draft: false
+private: true
+twitter-image: https://i.imgur.com/dSD7sBI.png
+image: https://i.imgur.com/dSD7sBI.png
 toc: false
-images:
 tags:
-- リンク集
-- 開発
-- Hugo
+  - 日記
 ---
 
 * [HUGO](https://gohugo.io/)
