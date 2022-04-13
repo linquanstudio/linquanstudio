@@ -1,4 +1,6 @@
 body {
     color: darkslategray;
     background-color: snow;
+    width: 800px;
+    margin: 10px auto;
 }

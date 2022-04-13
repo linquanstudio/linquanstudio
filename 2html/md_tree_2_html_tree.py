@@ -11,11 +11,16 @@ import pprint
 import mytool as mt
 
 usage = F"""
-{mt.N_PYTHON} {mt.N_ME} private:true|false src:path dest:path
+{mt.N_PYTHON} {mt.N_ME} private:true|false src:path dest:path baseurl:url
 
 private:true|false -> trueならprivateの記事も変換
 src:変換元ディレクトリのパス
 dest:出力先ディレクトリのパス
+baseurl:公開サイトのbaseurl
+
+markdownのポイント
+* コードはcodeでなく<pre></pre>を使う →```を<pre></pre>に変換?
+
 """
 
 p_dict = {
@@ -23,50 +28,73 @@ p_dict = {
     'src': '',
     'dest': '',
     'verbose': 'true',
+    'baseurl': 'http://localhost:8000',
 }
 
 #-----------------------------------------------------------------------------------------------
 # markdownをhtmlに変換する
 #-----------------------------------------------------------------------------------------------
-def md2html(src, dest, depth, private):
+def md2html(src, dest, depth, private, url):
     ym, md = read_yaml_and_markdown(src)
+    # private指定に合致しないものはskip(指定がpublicで文書がprivate)
     if not private and ym['private']:
         mt.xprint(F"[md2html] {src} private mode is different, skip.")
         return
+    ym['dest'] = dest
+    ym['url'] = url
+    #pprint.pprint(ym)
+    # html部分をnode tree化
     soup = BeautifulSoup(markdown.markdown(md), 'html.parser')
-    # aタグをすべてチェック
+    tag_a(soup)
+    tag_h2(soup)
+    tag_img(soup)
+    # 出力
+    mt.xprint(F"[render] {src} --> {dest}")
+    with open(dest, 'w') as f:
+        f.write(to_html(soup.prettify(), depth, ym))
+
+#-----------------------------------------------------------------------------------------------
+# aタグの処理
+#  1. target="_blank"を追加
+#  2. hrefが".md"だったら.htmlに変更
+#-----------------------------------------------------------------------------------------------
+def tag_a(soup):
     for a in soup.find_all('a'):
         a['target'] = '_blank'
         href = os.path.splitext(a.get('href'))
         if href[1] in [ '.md' ]:
             a['href'] = F"{href[0]}.html"
-    # h2に番号をつける
+
+#-----------------------------------------------------------------------------------------------
+# h2タグの処理
+# 1. ページ内で通番をつける
+#-----------------------------------------------------------------------------------------------
+def tag_h2(soup):
     for i, h2 in enumerate(soup('h2')):
         h2.insert(0, F"{i+1}. ")
-    # codeをそれらしくする
-    for t in soup('code'):
-        t.parent['class'] = 'code'
+            
+#-----------------------------------------------------------------------------------------------
+# imgタグの処理
+#-----------------------------------------------------------------------------------------------
+def tag_img(soup):
     # imgサイズを調整する (外部サイトにある場合も含めて調整に拡張)
     # ローカルの格納場所 md段階ではどこでも、htmlでは/image/下にランダム名でコピー
     # リンクのURLも調整する
     # または最初から/imageに置くか？
-    #for t in soup('img'):
+    for t in soup('img'):
     #    ext = os.path.splitext(t['src'])[1]
     #    img_path = F"{ls['root']}{os.sep}{t['src']}"
-    #    width = int(t['width']) if t.has_attr('width') else None
+        width = int(t['width']) if t.has_attr('width') else None
     #    if ext.lower() in [ '.png', '.jpg', '.jpeg' ]:
     #        with Image.open(img_path) as img:
     #            width = img.width
     #    #print(img_path, ext, width)
-    #    if width is None or width > 720:
-    #        width = 780
-    #    t['width'] = str(width)
-    #    t['style'] = 'display:block; margin:auto;'
-    # 出力
-    mt.xprint(F"[render] {src} --> {dest}")
-    with open(dest, 'w') as f:
-        f.write(to_html(soup.prettify(), depth))
-
+        if width is None or width > 340:
+            width = 340
+        t['width'] = str(width)
+        #t['style'] = 'display:block; margin:auto;'
+        #t['style'] = 'display:block;margin:0;'
+    
 #-----------------------------------------------------------------------------------------------
 #
 #-----------------------------------------------------------------------------------------------
@@ -86,41 +114,47 @@ def read_yaml_and_markdown(src):
 #-----------------------------------------------------------------------------------------------
 # 整形後の<body></body>内のhtmlをwrapして返す
 #-----------------------------------------------------------------------------------------------
-def to_html(body, depth):
+def to_html(body, depth, ym):
+    pprint.pprint(ym)
     return F"""<!doctype html>
 <html lang="ja">
 <head
 prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
 <meta charset="utf-8">
-<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/test-index.html" />
+<meta property="og:url" content="{ym['url']}" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@hayashiisme">
 <meta name="twitter:creator" content="@hayashiisme">
 <meta name="twitter:image"
-content="https://linquanstudio.github.io/linquanstudio/image/studio_icon.png" />
+content="{ym['twitter-image']}" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="商店主の仕込み" />
+<meta property="og:title" content="{ym['title']}" />
 <meta property="og:description" content="
-[商店主の仕込み]満を持して自家製CMSシステム開発開始。自家消費目的。永遠にβ版。
+{ym['description']}
 " />
 <meta property="og:site_name" content="林泉商店" />
-<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:image" content="{ym['image']}" />
 <meta property="og:locale" content="ja_JP" />
 <meta charset="utf-8">
-<title></title>
-<meta name="description" content="">
+<title>{ym['title']} - {ym['date']}</title>
+<meta name="description" content="{ym['description']}">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="{'../' * depth}css/style.css">
 </head>
 <body>
+<h1>{ym['title']}</h1>
 {body}
+<hr>
+<div class="footer">
+{ym['date']}
+</div>
 </body>
 </html>"""
 
 #-----------------------------------------------------------------------------------------------
 # srcディレクトリを再帰的に辿って一ファイルずつ処理
 #-----------------------------------------------------------------------------------------------
-def doit(src, dest, private, verbose):
+def doit(src, dest, private, verbose, baseurl):
     # srcの全リスト
     lsr = []
     if os.path.isdir(src):
@@ -149,7 +183,8 @@ def doit(src, dest, private, verbose):
             # markdown
             s = F"{l['root']}{l['subdir']}{os.sep}{l['base']}.md"
             d = F"{dest}{l['subdir']}{os.sep}{l['base']}.html"
-            md2html(s, d, l['depth'], private)
+            url = F"{baseurl}{l['subdir']}{os.sep}{l['base']}.html"
+            md2html(s, d, l['depth'], private, url)
 
 #-----------------------------------------------------------------------------------------------
 #
@@ -175,18 +210,20 @@ def coax_params(pdict):
     dest = os.path.expanduser(pdict['dest']) if pdict['dest'] != '' else None
     private = mt.t_or_f(pdict['private'])
     verbose = mt.t_or_f(pdict['verbose'])
-    return [ src, dest, private, verbose ]
+    baseurl = pdict['baseurl']
+    return [ src, dest, private, verbose, baseurl ]
 
 #-----------------------------------------------------------------------------------------------
 # verbose=Trueの時の実行設定表示
 #-----------------------------------------------------------------------------------------------
-def banner(src, dest, private, verbose):
+def banner(src, dest, private, verbose, baseurl):
     if verbose:
         mt.xbanner([
             F"SCRIPT DIR : {mt.D_ME} (PID:{mt.P_ME})",
             F"SRC        : {src}",
             F"DEST       : {dest}",
             F"PRIVATE    : {private}",
+            F"BASE URL   : {baseurl}",
         ])
 
 #-----------------------------------------------------------------------------------------------
@@ -194,10 +231,10 @@ def banner(src, dest, private, verbose):
 #-----------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     if not mt.getintodict(sys.argv, usage, p_dict): mt.exit_with_elapsed_code(1)
-    src, dest, private, verbose = coax_params(p_dict)
+    src, dest, private, verbose, baseurl = coax_params(p_dict)
     if src is None: mt.exit_with_elapsed_code(1, s='srcの指定がない')
     if dest is None: mt.exit_with_elapsed_code(1, s='destの指定がない')
-    banner(src, dest, private, verbose)
-    doit(src, dest, private, verbose)
+    banner(src, dest, private, verbose, baseurl)
+    doit(src, dest, private, verbose, baseurl)
     
     
