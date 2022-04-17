@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/2022/04/17/01.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="自家製CMS進捗" />
+<meta property="og:description" content="
+日記の基本変換手順はできて次は目次
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+<title>自家製CMS進捗 - 2022-04-17 13:19:00+09:00</title>
+<meta name="description" content="日記の基本変換手順はできて次は目次">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="../../../../css/style.css">
+</head>
+<body>
+<h1>自家製CMS進捗</h1>
+<p>
+ markdownのツリーを変換して静的htmlのサイトを自動生成するという自家製CMSプロジェクト。
+markdownツリーからひとまずの出力先であるGitHub Pagesへ、の基本の流れができた。
+</p>
+<p>
+ ここで問題になったのは主に2つで、
+</p>
+<ul>
+ <li>
+  公開/非公開の内容を一元的に管理できる仕組み
+ </li>
+ <li>
+  いったんfix|publishした内容を更新した時の管理方法
+ </li>
+</ul>
+<p>
+ だった。
+</p>
+<h2>
+ 1.
+ 公開/非公開の内容を一元的に管理
+</h2>
+<p>
+ 人間ですもの誰だって他人様にお見せしたいものしたくないものはある。
+</p>
+<p>
+ しかし、いろいろ書いたり作ったりしたものを一元的に管理できるのがCMSの便利さなので、
+下書き段階も含めてこっちは公開用、こっちは自分だけとかツリーを分けないといけない
+とかだったらバカバカし過ぎる。
+</p>
+<p>
+ 下書きだって非公開のまま進めるだけでなくて、公開しちゃって書き進めたいこともあるだろうし。
+</p>
+<p>
+ 内容それぞれに「公開|非公開」のフラグは必要としても、それはあくまで一つのツリーになってて、
+そこから自分だけ見られるサイトツリーと公開用に非公開のサイトツリーを切り替えてさくっと
+出力できる、というのでなければならない。
+</p>
+<div class="imgset">
+ <img alt="一つの内容ツリーから公開内容のみのサイトツリーと下書き・非公開も含んだサイトツリーを生成する" src="01_01.svg"/>
+</div>
+<p>
+ Front matterに"private"のキーを設けて、script実行時にそれによって出力するかどうかを決める
+ことにした。
+</p>
+<h2>
+ 2.
+ いったんfix|publishした内容を更新した時の管理方法
+</h2>
+<p>
+ Front matterキーに通常は"date"キーがあるが、それだけだといったん作成後変更した時の日付時刻を
+入れるところがない。
+</p>
+<p>
+ ので、"date-origin"キーを追加して"date"キーと両方に作成時の日付時刻を入れ、
+更新したら"date"の日付時刻を更新することにする。
+</p>
+<p>
+ 目次を作るときにはどちらの日付時刻を使うこともできよう。
+</p>
+<p>
+ ということで、やらなければならないことはいろいろあるが、次はひとまず目次づくりを考えよう。
+</p>
+<hr>
+<div class="footer">
+2022-04-17 13:19:00+09:00
+</div>
+</body>
+</html>
