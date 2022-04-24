@@ -1,0 +1,40 @@
+body {
+    color: darkslategray;
+    background-color: snow;
+    width: 800px;
+    margin: 10px auto;
+    font-size: 10pt;
+}
+.index_1 {
+    color: lightsteelblue;
+}
+.index_2 {
+    color: steelblue;
+}
+.index_3 {
+    color: lightslategray;
+}
+.index_4 {
+    color: skyblue;
+}
+.index_5 {
+    color: darkslategray;
+    font-size: 9pt;
+}
+.index_5::before {
+    content: ' . ';
+}
+a:link {
+    color: darkslategray;
+    text-decoration:none;
+}
+a:visited {
+    color: darkslategray;
+}
+a:hover {
+    color: darkslategray;
+    text-decoration:underline;
+}
+a:active {
+    color: darkslategray;
+}
