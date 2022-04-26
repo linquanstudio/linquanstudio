@@ -18,23 +18,32 @@ body {
     color: skyblue;
 }
 .index_5 {
-    color: darkslategray;
     font-size: 9pt;
 }
 .index_5::before {
     content: ' . ';
 }
-a:link {
+.public {
     color: darkslategray;
+}
+.private {
+    color: cadetblue;
+}
+.draft {
+    font-style: oblique 20deg;
+    text-decoration:underline;
+}
+a:link {
+    color: inherit;
     text-decoration:none;
 }
 a:visited {
-    color: darkslategray;
+    color: inherit;
 }
 a:hover {
-    color: darkslategray;
+    color: inherit;
     text-decoration:underline;
 }
 a:active {
-    color: darkslategray;
+    color: inherit;
 }
