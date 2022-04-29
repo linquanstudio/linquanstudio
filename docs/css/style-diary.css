@@ -22,6 +22,10 @@ a:hover {
 a:active {
     color: inherit;
 }
+code {
+    font-family: ui-monospace;
+    background-color: antiquewhite;
+}
 div.imgset {
     margin: 10px;
     width: auto;

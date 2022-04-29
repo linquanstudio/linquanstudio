@@ -152,7 +152,19 @@ script実行時にそれによって出力するかどうかを決めること�
   目次ではpublic/privateとdraftを区別する
  </li>
  <li>
-  privateでは各文書にmarkdownのファイルパスを表示する
+  privateでは以下の情報を追加
+  <ul>
+   <li>
+    文書のmarkdownファイルのパス
+   </li>
+   <li>
+    frontmatterの
+    <code>
+     public|private
+    </code>
+    の区別
+   </li>
+  </ul>
  </li>
 </ul>
 <h3>
@@ -219,6 +231,15 @@ weeklyとか、monthlyとか。
 </p>
 <p>
  文を書くときの決まりごとを増やせば生成処理は簡単になるけど本末転倒だし…。
+</p>
+<p>
+ ページ内に自分を指すaタグがあるとよい。
+ <code>
+  target="_blank"
+ </code>
+ を極力使わず、
+タブ内で遷移するように作っているが、そうするとページに対するタブを複数
+作りたくなることがある。
 </p>
 
     <div class="footer">
