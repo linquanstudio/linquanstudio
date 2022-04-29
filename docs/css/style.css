@@ -5,6 +5,11 @@ body {
     margin: 10px auto;
     font-size: 11pt;
 }
+.header {
+    padding-bottom: 15pt;
+    font-size: 9pt;
+}
 .footer {
     font-size: 9pt;
+    padding-top: 15pt;
 }
