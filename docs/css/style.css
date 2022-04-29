@@ -10,6 +10,7 @@ body {
     font-size: 9pt;
 }
 .footer {
+    clear: both;
     font-size: 9pt;
     padding-top: 15pt;
 }

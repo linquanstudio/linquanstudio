@@ -1,4 +1,4 @@
-span.title {
+h1 {
     font-size: 13pt;
     font-weight: bold;
 }
@@ -42,5 +42,15 @@ iframe {
 }
 img {
     margin: 4pt;
+}
+span.private {
+    font-size: 10pt;
+    background-color: darkred;
+    color: lightgray;
+}
+span.public {
+    font-size: 10pt;
+    background-color: darkblue;
+    color: lightgray;
 }
     
