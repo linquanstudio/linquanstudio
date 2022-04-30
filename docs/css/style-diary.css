@@ -27,17 +27,18 @@ code {
     background-color: antiquewhite;
 }
 div.imgset {
+    font-size: 8pt;
     margin: 10px;
     width: auto;
     background-color: gainsboro;
 }
 div.youtubeset {
-    text-align:center;
     font-size: 8pt;
     margin: 10px;
     background-color: gainsboro;
 }
 div.medium {
+    text-align:center;
     width: 380px; float: right;
 }
 div.media {
