@@ -32,6 +32,8 @@ div.imgset {
     background-color: gainsboro;
 }
 div.youtubeset {
+    text-align:center;
+    font-size: 8pt;
     margin: 10px;
     background-color: gainsboro;
 }
@@ -57,4 +59,17 @@ span.public {
     background-color: darkblue;
     color: lightgray;
 }
-    
+pre {
+    background-color: lightsteelblue;
+    padding: 0px 12px;
+}
+table, td, th {
+    border: 1px solid tan;
+    border-collapse: collapse;
+}
+th {
+    background-color: antiquewhite;
+}
+td, th {
+    padding: 3px 12px;
+}
