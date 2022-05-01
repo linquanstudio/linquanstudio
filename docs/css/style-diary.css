@@ -1,6 +1,11 @@
 h1 {
+    position: relative;
+    top: -1pt;
     font-size: 13pt;
     font-weight: bold;
+    padding-left: 8pt;
+    padding-bottom: 8pt;
+    /*border:0px solid tan;*/
 }
 h2 {
     font-size:12pt;
@@ -73,4 +78,16 @@ th {
 }
 td, th {
     padding: 3px 12px;
+}
+div.title {
+    line-height:4pt;
+    /*border:0px solid tan;*/
+    padding-bottom: 4pt;
+    background-color: antiquewhite;
+}
+.subtitle {
+    margin: 0pt 20pt;
+    font-size:9pt;
+    color: slategray;
+    /*border:0px solid antiquewhite;*/
 }

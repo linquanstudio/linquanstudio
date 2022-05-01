@@ -47,3 +47,33 @@ a:hover {
 a:active {
     color: inherit;
 }
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.description {
+    display: none;
+    position: absolute;
+    padding: 4pt;
+    font-size: 8pt;
+    line-height: 1.6em;
+    color: aliceblue;
+    border-radius: 2px;
+    background: darkslategray;
+    width: auto;
+    opacity: 0.7;
+}
+.description:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: 8px solid transparent;
+    border-top: 8px solid darkslategray;
+    margin-left: -8px;
+}
+.tooltip:hover .description {
+    display: inline-block;
+    bottom: 24pt;
+}
