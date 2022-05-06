@@ -13,6 +13,9 @@ h2 {
 h3 {
     font-size:11pt;
 }
+a {
+    font-weight: bold;
+}
 a:link {
     color: inherit;
     text-decoration:none;
@@ -31,24 +34,58 @@ code {
     font-family: ui-monospace;
     background-color: antiquewhite;
 }
+blockquote {
+    font-family: ui-monospace;
+    background-color: antiquewhite;
+}
 div.imgset {
     font-size: 8pt;
     margin: 10px;
     width: auto;
     background-color: gainsboro;
+
+    text-align:center;
+    width: 380px;
+    float: right;
 }
 div.youtubeset {
     font-size: 8pt;
     margin: 10px;
     background-color: gainsboro;
+
+    text-align:center;
+    width: 380px;
+    float: right;
 }
+div.applemusicset {
+    font-size: 8pt;
+    margin: 10px;
+    background-color: gainsboro;
+
+    text-align:center;
+    width: 380px;
+    float: right;
+}
+div.amazonassociateset {
+    font-size: 8pt;
+    margin: 10px;
+    background-color: gainsboro;
+
+    text-align:center;
+    width: 200px;
+    float: right;
+}
+
+/*
 div.medium {
     text-align:center;
-    width: 380px; float: right;
+    width: 380px;
+    float: right;
 }
 div.media {
     width: auto;
 }
+*/
 iframe {
     margin: 4pt;
 }
