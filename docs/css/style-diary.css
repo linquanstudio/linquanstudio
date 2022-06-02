@@ -46,7 +46,7 @@ div.imgset {
 
     text-align:center;
     width: 380px;
-    float: right;
+    /*float: right;*/
 }
 div.youtubeset {
     font-size: 8pt;
@@ -55,7 +55,7 @@ div.youtubeset {
 
     text-align:center;
     width: 380px;
-    float: right;
+    /*float: right;*/
 }
 div.applemusicset {
     font-size: 8pt;
@@ -64,7 +64,7 @@ div.applemusicset {
 
     text-align:center;
     width: 380px;
-    float: right;
+    /*float: right;*/
 }
 div.amazonassociateset {
     font-size: 8pt;
@@ -73,7 +73,7 @@ div.amazonassociateset {
 
     text-align:center;
     width: 200px;
-    float: right;
+    /*float: right;*/
 }
 
 /*

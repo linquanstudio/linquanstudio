@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ja">
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/cms/202205.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="自家製CMS進捗" />
+<meta property="og:description" content="
+2022年5月の進捗状況
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+<title>自家製CMS進捗 - 2022-06-01 00:00:00+09:00</title>
+<meta name="description" content="2022年5月の進捗状況">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/style-diary.css">
+<link rel="stylesheet" href="../../css/codehilite.css">
+</head>
+<body>
+
+    <div class="header">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2021/09/26/01.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2022/05/24/01.html">→</a></span>
+    
+        2022-06-01 00:00:00+09:00
+        
+    </div>
+    
+<div class="title">
+<h1><a href="202205.html" target="_blank">自家製CMS進捗</a></h1>
+<span class="subtitle">2022年5月の進捗状況</span>
+</div>
+<p>
+ 予め月末に進捗を公開する予定でガラだけ作っておくという新たな試み。
+</p>
+<h2>
+ 1.
+ まずTODO
+</h2>
+<p>
+ 先月からの持ち越し含め。
+</p>
+<dl>
+ <dt>
+  月ごと or 週ごと
+ </dt>
+ <dd>
+  一記事ごとにページにジャンプして読むのは結構かったるい時があるので、
+  もっと長いspanで一気通貫に読めるページも別に生成したい。
+  内部のリンクを処理するのが面倒そうだけどなんとかなるか
+ </dd>
+ <dt>
+  自分を指す
+  <code>
+   a
+  </code>
+  タグ
+ </dt>
+ <dd>
+  ページ内に自分を指すaタグがあるとよい。
+  <code>
+   target="_blank"
+  </code>
+  を極力使わず、
+  タブ内で遷移するように作っているが、そうするとページに対するタブを複数
+  作りたくなることがある
+ </dd>
+ <dt>
+  タグを活かす
+ </dt>
+ <dd>
+  タグはそもそも文書作成時に既に使われたタグなら選択で済ませることができないと
+  煩わし過ぎる。
+  集めてリスト化しておくのは難しくないけど書くのはEmacsで書いてるのでCMS内で
+  完結させるのはちと難儀。
+  ひとまずはサイト生成時にリスト作って決まったファイルに書き出しておく
+  くらいか
+ </dd>
+ <dt>
+  descriptionを文書に
+ </dt>
+ <dd>
+  frontmatterの
+  <code>
+   description
+  </code>
+  はogpに使うが、これがhtml上で見えないのは不便。
+  タイトルをsection化して小見出し的に載せるようにするか
+ </dd>
+</dl>
+<h2>
+ 2.
+ 05/01
+</h2>
+<ul>
+ <li>
+  <code>
+   description
+  </code>
+  を確認できるように
+  <ul>
+   <li>
+    目次ではhover時に吹き出しで表示
+   </li>
+  </ul>
+ </li>
+ <li>
+  文書内ではタイトルの下に
+ </li>
+</ul>
+<p>
+ レイアウトの変更は思いついたらちょこちょこと。
+</p>
+<h2>
+ 3.
+ 05/02
+</h2>
+<p>
+ frontmatterからタグを集めてきてhtmlを紐づけた辞書を作るところまではできた。
+</p>
+<h2>
+ 4.
+ 05/03
+</h2>
+<p>
+ タグからのアクセスをどう構成するか考え中。
+というか、今の目次から個々の記事に飛ぶ、
+という構成も再考するべきかという気にはなってきたが。
+</p>
+<p>
+ タグから飛ぶとかは普通は動的にやるけど、
+このまま静的生成でやっていっていいものか？
+</p>
+<h2>
+ 5.
+ 05/06
+</h2>
+<p>
+ <code>
+  div
+ </code>
+ のclassに
+ <code>
+  applemusicset
+ </code>
+ を追加。
+apple musicの埋め込み用。
+合わせてレイアウトのcssも調整。
+なんたらsetのdivは全部一列左寄せにして処理も単純にした。
+</p>
+<p>
+ 画面全体のレイアウト再検討。
+</p>
+<p>
+ <code>
+  div
+ </code>
+ と
+ <code>
+  iframe
+ </code>
+ でひとまず静的に目次(タグクラウド含む)と本文を
+一緒の画面にしようかと考えている。
+</p>
+<h2>
+ 6.
+ 06/02
+</h2>
+<p>
+ なんたらsetのdivは考えたすえいったん左寄せはやめた。
+</p>
+<p>
+ ウインドウ幅に合せて動的に段数を変える段組はCSSでできるのがわかったが、
+雑誌のページみたいに画面縦スクロールすると次のページが現れる、
+みたいにするのは面倒で、考え中。
+</p>
+<p>
+ 画面幅に関係なく一定の文字数/行の一段を通すというのもありかなと迷っている。
+</p>
+<h2>
+ 7.
+ 総論
+</h2>
+<p>
+ レイアウトについて悩み始めるとあっという間に手が止まってしまうという、
+それこそ小学生の壁新聞の時代からの習性に月の後半は嵌った。
+</p>
+<p>
+ 忙しいのもあるけど。
+</p>
+<p>
+ 段組が好きなんだけど最近のWebでは段組流行らないっぽいんだよな…。
+</p>
+
+    <div class="footer">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2021/09/26/01.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2022/05/24/01.html">→</a></span>
+    
+        2022-06-01 00:00:00+09:00
+        
+    </div>
+    
+</body>
+</html>
