@@ -59,11 +59,21 @@ div.youtubeset {
 }
 div.applemusicset {
     font-size: 8pt;
-    margin: 10px;
+    margin: 4px;
     background-color: gainsboro;
 
     text-align:center;
     width: 380px;
+    /*float: right;*/
+}
+div.spotifyset {
+    font-size: 8pt;
+    margin: 4px;
+    background-color: gainsboro;
+
+    text-align:center;
+    width: 380px;
+    height: 340px;
     /*float: right;*/
 }
 div.amazonassociateset {
@@ -129,3 +139,19 @@ div.title {
     color: slategray;
     /*border:0px solid antiquewhite;*/
 }
+
+div.from-reading {
+    margin: 10px 32px;
+}
+
+div.from-reading p code {
+    font-family: initial;
+    background-color: initial;
+}
+
+div.from-reading div.footnote {
+    font-size: 10pt;
+    text-align: right;
+    font-style: oblique 20deg;
+}
+
