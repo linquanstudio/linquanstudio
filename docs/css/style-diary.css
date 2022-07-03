@@ -151,6 +151,7 @@ div.from-reading p code {
 
 div.from-reading div.footnote {
     font-size: 9pt;
+    margin-top: 0pt;
     text-align: right;
     font-style: oblique 20deg;
     color: darkolivegreen;
