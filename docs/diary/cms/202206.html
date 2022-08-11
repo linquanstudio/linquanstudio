@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/cms/202206.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="自家製CMS進捗" />
+<meta property="og:description" content="
+2022年6月の進捗状況
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+<title>自家製CMS進捗 - 2022-07-01 00:00:00+09:00</title>
+<meta name="description" content="2022年6月の進捗状況">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/style-diary.css">
+<link rel="stylesheet" href="../../css/codehilite.css">
+</head>
+<body>
+
+    <div class="header">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2021/09/26/01.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/cms/202205.html">→</a></span>
+    
+        2022-07-01 00:00:00+09:00
+        
+    </div>
+    
+<div class="title">
+<h1><a href="202206.html" target="_blank">自家製CMS進捗</a></h1>
+<span class="subtitle">2022年6月の進捗状況</span>
+</div>
+<p>
+ 進捗報告が滞ってるのだから実際の開発もあまり進んでないわけで、
+しかし、どこかで切りつけつつ。
+</p>
+<h2>
+ 1.
+ まずTODO
+</h2>
+<p>
+ 先月からの持ち越し含め。
+</p>
+<dl>
+ <dt>
+  月ごと or 週ごと
+ </dt>
+ <dd>
+  一記事ごとにページにジャンプして読むのは結構かったるい時があるので、
+  もっと長いspanで一気通貫に読めるページも別に生成したい。
+  内部のリンクを処理するのが面倒そうだけどなんとかなるか
+ </dd>
+ <dt>
+  自分を指す
+  <code>
+   a
+  </code>
+  タグ
+ </dt>
+ <dd>
+  ページ内に自分を指すaタグがあるとよい。
+  <code>
+   target="_blank"
+  </code>
+  を極力使わず、
+  タブ内で遷移するように作っているが、そうするとページに対するタブを複数
+  作りたくなることがある →
+  <strong>
+   済
+  </strong>
+ </dd>
+ <dt>
+  タグを活かす
+ </dt>
+ <dd>
+  タグはそもそも文書作成時に既に使われたタグなら選択で済ませることができないと
+  煩わし過ぎる。
+  集めてリスト化しておくのは難しくないけど書くのはEmacsで書いてるのでCMS内で
+  完結させるのはちと難儀。
+  ひとまずはサイト生成時にリスト作って決まったファイルに書き出しておく
+  くらいか
+ </dd>
+ <dt>
+  基本レイアウト!
+ </dt>
+ <dd>
+  どうするかなあ…
+ </dd>
+</dl>
+<h2>
+ 2.
+ 現状
+</h2>
+<p>
+ 一気通貫とタグと基本レイアウトはそれぞれ関連するでもなく関連していて、
+まず現状をみたときに、
+</p>
+<ul>
+ <li>
+  読みやすいページにするため書く原稿に余計な作業が入ってしまっている
+ </li>
+ <li>
+  そうやってできたhtmlがresponsibleなレイアウトにかけるには複雑過ぎ
+ </li>
+</ul>
+<p>
+ という問題が発生してるなという結論に達する。
+</p>
+<p>
+ というわけでmarkdown作成のさらなる単純化と、局所的なレイアウトを極力
+排除する形に原稿自体をリファイン中。
+</p>
+<p>
+ これを終えたらrespoinsibleの実験プラットフォームとしてmobile用のCSSを
+導入する予定。
+</p>
+<p>
+ 地味に地味に。
+</p>
+
+    <div class="footer">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2021/09/26/01.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/cms/202205.html">→</a></span>
+    
+        2022-07-01 00:00:00+09:00
+        
+    </div>
+    
+</body>
+</html>
