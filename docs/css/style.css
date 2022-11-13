@@ -1,9 +1,11 @@
+/* こっちがスマホ用 */
 body {
+    font-family: sans-serif;
     color: darkslategray;
     background-color: snow;
-    width: 800px;
-    margin: 10px auto;
-    font-size: 11pt;
+    width: auto;
+    margin: auto;
+    font-size: 14pt;
 }
 .header {
     padding-bottom: 15pt;
@@ -13,4 +15,23 @@ body {
     clear: both;
     font-size: 9pt;
     padding-top: 15pt;
+}
+/* PC用 */
+@media screen and (min-width: 800px) {
+    body {
+        color: darkslategray;
+        background-color: snow;
+        width: 800px;
+        margin: 10px auto;
+        font-size: 11pt;
+    }
+    .header {
+        padding-bottom: 15pt;
+        font-size: 9pt;
+    }
+    .footer {
+        clear: both;
+        font-size: 9pt;
+        padding-top: 15pt;
+    }
 }
