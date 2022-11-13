@@ -101,6 +101,7 @@ iframe {
 }
 img {
     margin: 4pt;
+    width: 300px;
 }
 span.private {
     font-size: 10pt;
