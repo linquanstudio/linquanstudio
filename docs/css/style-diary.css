@@ -175,3 +175,8 @@ div.footnote {
     text-align: right;
     color: darkolivegreen;
 }
+
+div.embedd-caption {
+    font-size: 8pt;
+    color: olive;
+}
