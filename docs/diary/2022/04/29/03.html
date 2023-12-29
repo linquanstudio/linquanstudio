@@ -64,10 +64,9 @@ python-markdownに予め用意されてる拡張があるので使わない手�
 <p>
  markdownを実行するpython scriptを、
 </p>
-<pre>
-exts = [ 'tables', 'def_list', 'md_in_html' ]
+<pre class="codehilite"><code class="language-python">exts = [ 'tables', 'def_list', 'md_in_html' ]
 markdown.markdown(md, extensions=exts)
-</pre>
+</code></pre>
 <p>
  とかする。
 </p>
@@ -78,13 +77,12 @@ markdown.markdown(md, extensions=exts)
  1.
  table
 </h2>
-<pre>
-| extension | 機能 |
+<pre class="codehilite"><code class="language-markdown">| extension | 機能 |
 |:---------:|:-----|
 | tables    | テーブル |
-| def_list  | 定義リスト &lt;code&gt;dl,dt,dd&lt;/code&gt; |
+| def_list  | 定義リスト &amp;lt;code&amp;gt;dl,dt,dd&amp;lt;/code&amp;gt; |
 | md_in_html | html記述の中でmarkdownを使う|
-</pre>
+</code></pre>
 <p>
  とすると、
 </p>
@@ -139,15 +137,14 @@ markdown.markdown(md, extensions=exts)
  2.
  def_list
 </h2>
-<pre>
-CowGirl
+<pre class="codehilite"><code class="language-markdown">CowGirl
 :   Lie on your back.
     Allow your partner to mount you, straddle your hips,
     and insert your penis from an upright position.
 Spooning
 : Both partners lie on their sides, your front pressing against her back
     like the spooning cuddle position.
-</pre>
+</code></pre>
 <p>
  とすると、
 </p>
@@ -193,11 +190,10 @@ like the spooning cuddle position.
 <p>
  たとえば、
 </p>
-<pre>
-<div markdown="1">
+<pre class="codehilite"><code class="language-html">&lt;div markdown="1"&gt;
 This is a *Markdown* Paragraph.
-</div>
-</pre>
+&lt;/div&gt;
+</code></pre>
 <p>
  とすると、
 </p>
@@ -215,16 +211,15 @@ This is a *Markdown* Paragraph.
 <p>
  となる。
 </p>
-<pre>
-<section markdown="block">
+<pre class="codehilite"><code class="language-markdown">&lt;section markdown="block"&gt;
 # A header.
 
 A *Markdown* paragraph.
 
 * A list item.
 * A second list item.
-</section>
-</pre>
+&lt;/section&gt;
+</code></pre>
 <p>
  とすると、
 </p>
@@ -263,6 +258,13 @@ A *Markdown* paragraph.
   rowspan
  </code>
  が使えるextensionないかな〜。
+</p>
+<p>
+ 2023-12-29T15:59:00+09:00
+</p>
+<p>
+ Fenced Code Blocksの拡張が入っていなかったのを放置してたので入れるようにした。
+ついでにcodehiliteも入れてみよう。
 </p>
 
 </div>

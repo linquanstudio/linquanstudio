@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja">
+
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/02.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Pythonで画像OCRを読んで文字起こし" />
+<meta property="og:description" content="
+tesseract、pytesseract、pyocr、ImageGrab
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+
+<title>Pythonで画像OCRを読んで文字起こし - 2023-12-29 12:18:00+09:00</title>
+
+<meta name="description" content="tesseract、pytesseract、pyocr、ImageGrab">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<link rel="stylesheet" href="../../../../css/style.css">
+<link rel="stylesheet" href="../../../../css/style-diary.css">
+<link rel="stylesheet" href="../../../../css/codehilite.css">
+
+</head>
+
+<body>
+
+
+    <div class="header">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/03.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/01.html">→</a></span>
+    
+        2023-12-29 12:18:00+09:00
+        
+    </div>
+    
+
+<div class="title">
+<h1><a href="02.html" target="_blank">Pythonで画像OCRを読んで文字起こし</a></h1>
+<div class="subtitle">tesseract、pytesseract、pyocr、ImageGrab</div>
+</div>
+
+<div class="content">
+<p>
+ 意外に画像から文字起こししたい需要があるのだった。
+OCRできるソフトに
+ <a href="https://github.com/UB-Mannheim/tesseract" target="_blank">
+  Tesseract
+ </a>
+ というのがあってこれを使うとしたい。
+</p>
+<h2>
+ 1.
+ tesseract
+</h2>
+<p>
+ tesseractはhomebrewで入る(
+ <code>
+  $ brew install tesseract
+ </code>
+ )。
+</p>
+<h2>
+ 2.
+ pytesseractとpyocr
+</h2>
+<p>
+ pythonからはwrapper経由で呼び出すが二種類あった。
+</p>
+<ul>
+ <li>
+  <a href="https://pypi.org/project/pytesseract/" target="_blank">
+   pytesseract
+  </a>
+ </li>
+ <li>
+  <a href="https://gitlab.gnome.org/World/OpenPaperwork/pyocr" target="_blank">
+   pyocr
+  </a>
+ </li>
+</ul>
+<p>
+ どちらもpipで入る(
+ <code>
+  $ pip install pytesseract
+ </code>
+ 、
+ <code>
+  $ pip install pyocr
+ </code>
+ )。
+</p>
+<h3>
+ 英語の画像から
+</h3>
+<p>
+ まず英文の画像ファイルを文字起こししてみる。
+</p>
+<ul>
+ <li>
+  <a href="https://github.com/linquanstudio/developer/blob/3df8b2227666a39bd3ee760b6f633d3ad83c3134/python/ocr/do_pytesseract_e_file.py" target="_blank">
+   do_pytesseract_e_file.py
+  </a>
+ </li>
+ <li>
+  <a href="https://github.com/linquanstudio/developer/blob/3df8b2227666a39bd3ee760b6f633d3ad83c3134/python/ocr/do_pyocr_e_file.py" target="_blank">
+   do_pyocr_e_file.py
+  </a>
+ </li>
+</ul>
+<p>
+ どちらも問題なし。
+</p>
+<h3>
+ 日本語対応 - tesseractから
+</h3>
+<p>
+ tesseractがそのままでは日本語に対応しない。
+</p>
+<p>
+ 確認する。
+</p>
+<pre class="codehilite"><code class="language-shell">$ python
+&gt;&gt;&gt; import pytesseract
+&gt;&gt;&gt; pytesseract.get_languages()
+['eng', 'osd', 'snum']
+&gt;&gt;&gt;
+</code></pre>
+<p>
+ tesseract-ocr-jpnをbrewでインストールできるらしいがうまくいかない。
+</p>
+<pre class="codehilite"><code class="language-shell">$ brew install tesseract-ocn-jpn
+==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
+==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
+Warning: No available formula with the name "tesseract-ocn-jpn". Did you mean tesseract?
+</code></pre>
+<p>
+ といわれてしまう。
+学習データがインストールされてないらしい。
+ので手動インストール試行。
+</p>
+<ul>
+ <li>
+  <a href="https://dev.classmethod.jp/articles/ocr-on-a-mac-device-with-pytesseract/" target="_blank">
+   参考
+  </a>
+ </li>
+</ul>
+<p>
+ 学習データは"
+ <a href="https://github.com/tesseract-ocr/tessdata_best/tree/main" target="_blank">
+  Best (most accurate) trained LSTM models.
+ </a>
+ "となってて、ここから日本語対応のデータをダウンロードする。jpn.traineddataとjpn_vert.traineddataが必要、ということは用意すれば縦書きにも対応するかな？
+</p>
+<p>
+ <code>
+  $ brew list tesseract
+ </code>
+ で確認するとtessdataは、
+ <code>
+  /usr/local/Cellar/tesseract/5.3.3/share/tessdata/
+ </code>
+ にあるようなので、
+ここにファイルを置く。
+</p>
+<p>
+ pythonで再確認すると追加された模様。
+</p>
+<pre class="codehilite"><code class="language-shell">$ python
+&gt;&gt;&gt; import pytesseract
+&gt;&gt;&gt; pytesseract.get_languages()
+['eng', 'jpn', 'jpn_vert', 'osd', 'snum']
+&gt;&gt;&gt; 
+</code></pre>
+<p>
+ 日本語文の画像を用意して試してみる。
+</p>
+<ul>
+ <li>
+  <a href="https://github.com/linquanstudio/developer/blob/911dd4bca46beb4c5c721a91c1c856acd3321761/python/ocr/do_pytesseract_j_file.py" target="_blank">
+   do_pytesseract_j_file.py
+  </a>
+ </li>
+ <li>
+  <a href="https://github.com/linquanstudio/developer/blob/911dd4bca46beb4c5c721a91c1c856acd3321761/python/ocr/do_pyocr_j_file.py" target="_blank">
+   do_pyocr_j_file.py
+  </a>
+ </li>
+</ul>
+<p>
+ どちらも日本語の認識はしてくれた。
+pyocrの縦書きがおかしいので、当面pytesseractをベースにする。
+</p>
+<h3>
+ 入出力をクリップボード経由で
+</h3>
+<p>
+ 使い方を考えてクリップボードから読み込んだデータを文字起こしした後、
+テキストをクリップボードに書き出すことにする。
+</p>
+<p>
+ 言語を示すパラメータを引数で渡す。
+</p>
+<p>
+ クリップボードからの入力はPIL.ImageGrab、出力はpyperclipを使用。
+</p>
+<ul>
+ <li>
+  <a href="https://github.com/linquanstudio/developer/blob/8e4e8db0faec37bcabd287eac6efdd93fea86cb6/python/ocr/do_pytesseract_cb.py" target="_blank">
+   do_pytesseract_cb.py
+  </a>
+ </li>
+</ul>
+<p>
+ 完璧。
+</p>
+<h2>
+ 3.
+ 参考
+</h2>
+<ul>
+ <li>
+  <a href="https://alicia-ing.com/programming/tesseract-pyocr/" target="_blank">
+   tesseractとPyOCRで画像の文字を検出
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/daifuku10/items/c42d68068add6cd5da85" target="_blank">
+   Pythonで画像をOCRしてテキスト変換する！ (Qiita)
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/ryome/items/16fc42854fe93de78a23" target="_blank">
+   画像から文字を瞬時に読み取る！Tesseractとpytesseractの驚異の力 (Qiita)
+  </a>
+ </li>
+ <li>
+  <a href="https://www.tweeeety.blog/entry/2018/01/22/231003" target="_blank">
+   brewコマンドのインストール先を確認する
+  </a>
+ </li>
+ <li>
+  <a href="https://qiita.com/dmikita/items/94899837d79925d89fae" target="_blank">
+   pythonで画面上の指定した範囲の文字を取得する (Qiita)
+  </a>
+ </li>
+</ul>
+
+</div>
+
+    <div class="footer">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/03.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/01.html">→</a></span>
+    
+        2023-12-29 12:18:00+09:00
+        
+    </div>
+    
+
+</body>
+
+</html>

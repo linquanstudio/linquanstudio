@@ -55,19 +55,17 @@ content="https://i.imgur.com/dSD7sBI.png" />
 <h3>
  .DS_Storeを作らない設定
 </h3>
-<pre>
-% defaults write com.apple.desktopservices DSDontWriteNetworkStores True
+<pre class="codehilite"><code class="language-shell">% defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 % killall Finder
-</pre>
+</code></pre>
 <h3>
  .DS_Store と._xxx を一括削除する方法
 </h3>
 <p>
  コマンドを使って削除する
 </p>
-<pre>
-find . \( -name '.DS_Store' -or -name '._*' \) -delete -print
-</pre>
+<pre class="codehilite"><code class="language-shell">find . \( -name '.DS_Store' -or -name '._*' \) -delete -print
+</code></pre>
 <ul>
  <li>
   <a href="https://lovemac.jp/9906" target="_blank">

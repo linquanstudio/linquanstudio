@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/03.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image"
+content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="テスト - CMSのコードブロック" />
+<meta property="og:description" content="
+コードブロックのmarkdownがうまく変換されないのでデバッグ
+" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/dSD7sBI.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta charset="utf-8">
+
+<title>テスト - CMSのコードブロック - 2023-12-29 15:10:00+09:00</title>
+
+<meta name="description" content="コードブロックのmarkdownがうまく変換されないのでデバッグ">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<link rel="stylesheet" href="../../../../css/style.css">
+<link rel="stylesheet" href="../../../../css/style-diary.css">
+<link rel="stylesheet" href="../../../../css/codehilite.css">
+
+</head>
+
+<body>
+
+
+    <div class="header">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/cms/202205.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/02.html">→</a></span>
+    
+        2023-12-29 15:10:00+09:00
+        
+    </div>
+    
+
+<div class="title">
+<h1><a href="03.html" target="_blank">テスト - CMSのコードブロック</a></h1>
+<div class="subtitle">コードブロックのmarkdownがうまく変換されないのでデバッグ</div>
+</div>
+
+<div class="content">
+<p>
+ <code>
+  ```
+ </code>
+ で囲ったブロックが
+ <code>
+  &lt;pre&gt;&lt;/pre&gt;
+ </code>
+ とか
+ <code>
+  &lt;code&gt;&lt;/code&gt;
+ </code>
+ とかに変換されていないようだ。
+</p>
+<p>
+ デバッグしましょう。
+</p>
+<pre class="codehilite"><code>$ brew install tesseract-ocn-jpn
+==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
+==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
+Warning: No available formula with the name "tesseract-ocn-jpn". Did you mean tesseract?
+</code></pre>
+<p>
+ 以下はpythonコード
+</p>
+<pre class="codehilite"><code class="language-python">#---------------------------------------------------------
+# markdownファイルを読んでfrontmatterとmarkdownに分けて返す
+#---------------------------------------------------------
+def read_yaml_and_markdown(src):
+    #print(src)
+    with open(src, 'r', encoding='utf-8') as f:
+        lines = [ l.rstrip('\n') for l in f.readlines() ]
+    # yamlのブロックとmarkdownを分ける
+    ym = []
+    if lines[0] == '---':
+        lines.pop(0)
+        while lines[0] != '---':
+            ym.append(lines.pop(0))
+        lines.pop(0)
+    ym = yaml.safe_load('\n'.join(ym))
+    # commentを除去する
+    flag = False
+    lines2 = []
+    for l in lines:
+        if flag:
+            if l == '```':
+                flag = False
+        elif l == '```comment':
+            flag = True
+        else:
+            lines2.append(l)
+    return (ym, '\n'.join(lines2))
+</code></pre>
+<p>
+ いかが？
+</p>
+<h3>
+ 修正した
+</h3>
+<p>
+ なんのことはない、
+ <code>
+  markdown.markdown
+ </code>
+ を実行するときに、
+ <a href="https://python-markdown.github.io/extensions/" target="_blank">
+  Fenced Code Blocksのextension
+ </a>
+ を入れていないのが原因だった。
+情けな。
+</p>
+<p>
+ それがわからなくて
+ <code>
+  &lt;pre&gt;&lt;/pre&gt;
+ </code>
+ でごまかしているのが結構ある。
+</p>
+<p>
+ ↑も修正してついでにCodeHiliteも入れてみたんだが、
+ただ入れただけではどうやら効かないような。
+</p>
+
+</div>
+
+    <div class="footer">
+    
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/cms/202205.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2023/12/29/02.html">→</a></span>
+    
+        2023-12-29 15:10:00+09:00
+        
+    </div>
+    
+
+</body>
+
+</html>

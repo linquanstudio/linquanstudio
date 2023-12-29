@@ -32,7 +32,7 @@ a:active {
 }
 code {
     font-family: ui-monospace;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 blockquote {
     font-family: ui-monospace;
