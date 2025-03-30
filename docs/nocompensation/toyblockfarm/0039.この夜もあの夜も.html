@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>この夜もあの夜も</title>
+    <style>
+     body { margin:0px; padding:0px;
+       font-family: Avenir, Verdana,
+       "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+       font-weight: bold;
+     }
+     .board {
+       width:874px; height:1234px; margin:0px; padding:0px; border:solid 1px orange;
+     }
+     .title {
+       top:30px;
+       text-align:center;
+       border:solid 0px #D0D0D0;
+     }
+     .song-lyrics { position:absolute; top:55px; left:4px; width:870px; /* height:1120px; */
+       padding-top:0.5em;
+       font-size:1.1em;
+       border:solid 0px orange;
+       display: flex;
+     }
+     .song-chords {
+       position:absolute;
+       top:800px;
+       left:4px; width:auto; <!-- width:870px; height:1136px; -->
+       text-align:center;
+       font-size:1em;
+       border:solid 0px lightblue;
+     }
+     .left-column, .right-column {
+       flex: 1; /* 等幅にする場合 */
+       padding: 10px;
+       border:solid 0px green;
+       position: relative; /* 内部の要素の基準になる */
+     }
+     .song-seq { font-size:1em; vertical-align:bottom; padding-right:0.5em; }
+     .song-title { font-size:1.7em; font-style:bold;
+       text-decoration: underline; text-underline-offset: 5px;
+     }
+     .sup_c { font-size:0.5em; vertical-align:top; color:#F00000; }
+     .marker {
+       position:absolute; left:10px; top:auto; /* 親要素からの相対位置指定 */
+       width:22px; height:22px;
+       text-align:center;
+       font-size:19px;
+       border:solid 2px;
+     }
+     .l_0 { height:1em; padding-left:4em; margin-left:1em; border:solid 0px #505050; }
+     .l_1 { height:1.4em; vertical-align:bottom; padding-left:0.5em; margin-left:1em;
+       border:solid 0px #505050; }
+     .l_2 { height:1.4em; vertical-align:bottom; padding-left:1.5em; margin-left:1em;
+       border:solid 0px #505050; }
+     .l_3 { height:1.4em; vertical-align:bottom; padding-left:2em; margin-left:1em;
+       border:solid 0px #505050; }
+    </style>
+  </head>
+  <body>
+		<div class="board">
+      <div class="title">
+        <span class="song-seq">0039.</span>
+        <span class="song-title">この夜もあの夜も</span>
+      </div>
+
+      <div class="song-lyrics">
+        <div class="left-column">
+          <div class="l_1"></div>
+          <div class="l_1">レトロに偽装された街並みを横目にする朝の</div>
+          <div class="l_1">何気に多少インダストリアルじみて</div>
+          <div class="l_1">金と力から遠く離れ</div>
+          <div class="l_1">息をする財布と成り果て</div>
+          <div class="l_1">オリーブ色のコートに隠れて</div>
+          <div class="l_1">詩人の仕事の運び屋</div>
+          <div class="l_1">対価なき労働の歓び</div>
+          <div class="l_1">この夜もあの夜もどの夜も</div>
+
+        </div>
+        <div class="right-column">
+        </div>
+      </div>
+
+      <div class="song-chords">
+        <!-- <img src="0039.この夜もあの夜も.png" width="800" /> -->
+      </div>
+      
+		</div>
+  </body>
+</html>
