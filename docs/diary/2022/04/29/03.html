@@ -64,9 +64,11 @@ python-markdownに予め用意されてる拡張があるので使わない手�
 <p>
  markdownを実行するpython scriptを、
 </p>
-<pre class="codehilite"><code class="language-python">exts = [ 'tables', 'def_list', 'md_in_html' ]
-markdown.markdown(md, extensions=exts)
+<div class="codehilite">
+ <pre><span></span><code><span class="n">exts</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'tables'</span><span class="p">,</span> <span class="s1">'def_list'</span><span class="p">,</span> <span class="s1">'md_in_html'</span> <span class="p">]</span>
+<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="n">exts</span><span class="p">)</span>
 </code></pre>
+</div>
 <p>
  とかする。
 </p>
@@ -77,12 +79,14 @@ markdown.markdown(md, extensions=exts)
  1.
  table
 </h2>
-<pre class="codehilite"><code class="language-markdown">| extension | 機能 |
+<div class="codehilite">
+ <pre><span></span><code>| extension | 機能 |
 |:---------:|:-----|
 | tables    | テーブル |
 | def_list  | 定義リスト &amp;lt;code&amp;gt;dl,dt,dd&amp;lt;/code&amp;gt; |
 | md_in_html | html記述の中でmarkdownを使う|
 </code></pre>
+</div>
 <p>
  とすると、
 </p>
@@ -137,7 +141,8 @@ markdown.markdown(md, extensions=exts)
  2.
  def_list
 </h2>
-<pre class="codehilite"><code class="language-markdown">CowGirl
+<div class="codehilite">
+ <pre><span></span><code>CowGirl
 :   Lie on your back.
     Allow your partner to mount you, straddle your hips,
     and insert your penis from an upright position.
@@ -145,6 +150,7 @@ Spooning
 : Both partners lie on their sides, your front pressing against her back
     like the spooning cuddle position.
 </code></pre>
+</div>
 <p>
  とすると、
 </p>
@@ -190,10 +196,12 @@ like the spooning cuddle position.
 <p>
  たとえば、
 </p>
-<pre class="codehilite"><code class="language-html">&lt;div markdown="1"&gt;
+<div class="codehilite">
+ <pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">markdown</span><span class="o">=</span><span class="s">"1"</span><span class="p">&gt;</span>
 This is a *Markdown* Paragraph.
-&lt;/div&gt;
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre>
+</div>
 <p>
  とすると、
 </p>
@@ -211,15 +219,17 @@ This is a *Markdown* Paragraph.
 <p>
  となる。
 </p>
-<pre class="codehilite"><code class="language-markdown">&lt;section markdown="block"&gt;
-# A header.
+<div class="codehilite">
+ <pre><span></span><code>&lt;section markdown="block"&gt;
+<span class="gh"># A header.</span>
 
-A *Markdown* paragraph.
+A <span class="ge">*Markdown*</span> paragraph.
 
-* A list item.
-* A second list item.
+<span class="k">*</span><span class="w"> </span>A list item.
+<span class="k">*</span><span class="w"> </span>A second list item.
 &lt;/section&gt;
 </code></pre>
+</div>
 <p>
  とすると、
 </p>

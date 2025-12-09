@@ -131,20 +131,24 @@ OCRできるソフトに
 <p>
  確認する。
 </p>
-<pre class="codehilite"><code class="language-shell">$ python
-&gt;&gt;&gt; import pytesseract
-&gt;&gt;&gt; pytesseract.get_languages()
-['eng', 'osd', 'snum']
+<div class="codehilite">
+ <pre><span></span><code>$<span class="w"> </span>python
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>pytesseract
+&gt;&gt;&gt;<span class="w"> </span>pytesseract.get_languages<span class="o">()</span>
+<span class="o">[</span><span class="s1">'eng'</span>,<span class="w"> </span><span class="s1">'osd'</span>,<span class="w"> </span><span class="s1">'snum'</span><span class="o">]</span>
 &gt;&gt;&gt;
 </code></pre>
+</div>
 <p>
  tesseract-ocr-jpnをbrewでインストールできるらしいがうまくいかない。
 </p>
-<pre class="codehilite"><code class="language-shell">$ brew install tesseract-ocn-jpn
-==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
-==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
-Warning: No available formula with the name "tesseract-ocn-jpn". Did you mean tesseract?
+<div class="codehilite">
+ <pre><span></span><code>$<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>tesseract-ocn-jpn
+<span class="o">==</span>&gt;<span class="w"> </span>Downloading<span class="w"> </span>https://formulae.brew.sh/api/formula.jws.json
+<span class="o">==</span>&gt;<span class="w"> </span>Downloading<span class="w"> </span>https://formulae.brew.sh/api/cask.jws.json
+Warning:<span class="w"> </span>No<span class="w"> </span>available<span class="w"> </span>formula<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span><span class="s2">"tesseract-ocn-jpn"</span>.<span class="w"> </span>Did<span class="w"> </span>you<span class="w"> </span>mean<span class="w"> </span>tesseract?
 </code></pre>
+</div>
 <p>
  といわれてしまう。
 学習データがインストールされてないらしい。
@@ -178,12 +182,14 @@ Warning: No available formula with the name "tesseract-ocn-jpn". Did you mean te
 <p>
  pythonで再確認すると追加された模様。
 </p>
-<pre class="codehilite"><code class="language-shell">$ python
-&gt;&gt;&gt; import pytesseract
-&gt;&gt;&gt; pytesseract.get_languages()
-['eng', 'jpn', 'jpn_vert', 'osd', 'snum']
-&gt;&gt;&gt; 
+<div class="codehilite">
+ <pre><span></span><code>$<span class="w"> </span>python
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>pytesseract
+&gt;&gt;&gt;<span class="w"> </span>pytesseract.get_languages<span class="o">()</span>
+<span class="o">[</span><span class="s1">'eng'</span>,<span class="w"> </span><span class="s1">'jpn'</span>,<span class="w"> </span><span class="s1">'jpn_vert'</span>,<span class="w"> </span><span class="s1">'osd'</span>,<span class="w"> </span><span class="s1">'snum'</span><span class="o">]</span>
+&gt;&gt;&gt;<span class="w"> </span>
 </code></pre>
+</div>
 <p>
  日本語文の画像を用意して試してみる。
 </p>

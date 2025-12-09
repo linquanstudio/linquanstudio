@@ -69,42 +69,46 @@ content="https://i.imgur.com/dSD7sBI.png" />
 <p>
  デバッグしましょう。
 </p>
-<pre class="codehilite"><code>$ brew install tesseract-ocn-jpn
-==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
-==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
-Warning: No available formula with the name "tesseract-ocn-jpn". Did you mean tesseract?
+<div class="codehilite">
+ <pre><span></span><code><span class="o">$</span><span class="w"> </span><span class="n">brew</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">tesseract</span><span class="o">-</span><span class="n">ocn</span><span class="o">-</span><span class="n">jpn</span>
+<span class="o">==&gt;</span><span class="w"> </span><span class="n">Downloading</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">formulae</span><span class="o">.</span><span class="n">brew</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">formula</span><span class="o">.</span><span class="n">jws</span><span class="o">.</span><span class="n">json</span>
+<span class="o">==&gt;</span><span class="w"> </span><span class="n">Downloading</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">formulae</span><span class="o">.</span><span class="n">brew</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">cask</span><span class="o">.</span><span class="n">jws</span><span class="o">.</span><span class="n">json</span>
+<span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">formula</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="s2">"tesseract-ocn-jpn"</span><span class="o">.</span><span class="w"> </span><span class="n">Did</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="n">tesseract</span><span class="err">?</span>
 </code></pre>
+</div>
 <p>
  以下はpythonコード
 </p>
-<pre class="codehilite"><code class="language-python">#---------------------------------------------------------
-# markdownファイルを読んでfrontmatterとmarkdownに分けて返す
-#---------------------------------------------------------
-def read_yaml_and_markdown(src):
-    #print(src)
-    with open(src, 'r', encoding='utf-8') as f:
-        lines = [ l.rstrip('\n') for l in f.readlines() ]
-    # yamlのブロックとmarkdownを分ける
-    ym = []
-    if lines[0] == '---':
-        lines.pop(0)
-        while lines[0] != '---':
-            ym.append(lines.pop(0))
-        lines.pop(0)
-    ym = yaml.safe_load('\n'.join(ym))
-    # commentを除去する
-    flag = False
-    lines2 = []
-    for l in lines:
-        if flag:
-            if l == '```':
-                flag = False
-        elif l == '```comment':
-            flag = True
-        else:
-            lines2.append(l)
-    return (ym, '\n'.join(lines2))
+<div class="codehilite">
+ <pre><span></span><code><span class="c1">#---------------------------------------------------------</span>
+<span class="c1"># markdownファイルを読んでfrontmatterとmarkdownに分けて返す</span>
+<span class="c1">#---------------------------------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_yaml_and_markdown</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="c1">#print(src)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span> <span class="n">l</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="p">]</span>
+    <span class="c1"># yamlのブロックとmarkdownを分ける</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'---'</span><span class="p">:</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'---'</span><span class="p">:</span>
+            <span class="n">ym</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ym</span><span class="p">))</span>
+    <span class="c1"># commentを除去する</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">lines2</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s1">'```'</span><span class="p">:</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">l</span> <span class="o">==</span> <span class="s1">'```comment'</span><span class="p">:</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lines2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines2</span><span class="p">))</span>
 </code></pre>
+</div>
 <p>
  いかが？
 </p>
