@@ -86,7 +86,9 @@ div.amazonassociateset {
     /*float: right;*/
 }
 div.ai {
-    background-color: red;
+    /*background-color: red;*/
+    border: 1px solid tan;
+    border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
 }
