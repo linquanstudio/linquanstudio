@@ -85,6 +85,9 @@ div.amazonassociateset {
     width: 200px;
     /*float: right;*/
 }
+div.ai {
+    background-color: red;
+}
 
 /*
 div.medium {
