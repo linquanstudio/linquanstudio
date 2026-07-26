@@ -38,6 +38,7 @@ blockquote {
     font-family: ui-monospace;
     background-color: antiquewhite;
 }
+
 div.imgset {
     font-size: 8pt;
     margin: 10px;
@@ -48,6 +49,7 @@ div.imgset {
     width: 380px;
     /*float: right;*/
 }
+/*
 div.youtubeset {
     font-size: 8pt;
     margin: 10px;
@@ -55,7 +57,6 @@ div.youtubeset {
 
     text-align:center;
     width: 380px;
-    /*float: right;*/
 }
 div.applemusicset {
     font-size: 8pt;
@@ -64,7 +65,6 @@ div.applemusicset {
 
     text-align:center;
     width: 380px;
-    /*float: right;*/
 }
 div.spotifyset {
     font-size: 8pt;
@@ -74,7 +74,6 @@ div.spotifyset {
     text-align:center;
     width: 380px;
     height: 340px;
-    /*float: right;*/
 }
 div.amazonassociateset {
     font-size: 8pt;
@@ -83,14 +82,14 @@ div.amazonassociateset {
 
     text-align:center;
     width: 200px;
-    /*float: right;*/
 }
+*/
 div.ai {
     /*background-color: red;*/
     border: 1px solid tan;
-    border-collapse: collapse;
-    width: 90%;
-    margin-left: 2%;
+    width: 100%;
+    margin: 0%;
+    padding: 5%;
 }
 
 /*
