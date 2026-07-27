@@ -50,6 +50,41 @@ prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me
 </div>
 
 <div class="content">
+<h3>
+ .DS_Storeを作らない設定
+</h3>
+<div class="codehilite">
+ <pre><span></span><code>%<span class="w"> </span>defaults<span class="w"> </span>write<span class="w"> </span>com.apple.desktopservices<span class="w"> </span>DSDontWriteNetworkStores<span class="w"> </span>True
+%<span class="w"> </span>killall<span class="w"> </span>Finder
+</code></pre>
+</div>
+<h3>
+ .DS_Store と._xxx を一括削除する方法
+</h3>
+<p>
+ コマンドを使って削除する
+</p>
+<div class="codehilite">
+ <pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span><span class="se">\(</span><span class="w"> </span>-name<span class="w"> </span><span class="s1">'.DS_Store'</span><span class="w"> </span>-or<span class="w"> </span>-name<span class="w"> </span><span class="s1">'._*'</span><span class="w"> </span><span class="se">\)</span><span class="w"> </span>-delete<span class="w"> </span>-print
+</code></pre>
+</div>
+<ul>
+ <li>
+  <a href="https://lovemac.jp/9906" target="_blank">
+   参考: .DS_Store や ._xxx ファイルを作らない＆削除する方法
+  </a>
+ </li>
+</ul>
+<p>
+ さらに、.gitignoreとの連携も。
+</p>
+<ul>
+ <li>
+  <a href="https://qiita.com/takashimelon/items/def769aaaa1d41cc44d4" target="_blank">
+   参考: .gitignoreで.DS_Storeを削除しよう
+  </a>
+ </li>
+</ul>
 
 </div>
 
