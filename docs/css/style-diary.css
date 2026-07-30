@@ -49,49 +49,8 @@ div.imgset {
     width: 380px;
     /*float: right;*/
 }
-/*
-div.youtubeset {
-    font-size: 8pt;
-    margin: 10px;
-    background-color: gainsboro;
 
-    text-align:center;
-    width: 380px;
-}
-div.applemusicset {
-    font-size: 8pt;
-    margin: 4px;
-    background-color: gainsboro;
-
-    text-align:center;
-    width: 380px;
-}
-div.spotifyset {
-    font-size: 8pt;
-    margin: 4px;
-    background-color: gainsboro;
-
-    text-align:center;
-    width: 380px;
-    height: 340px;
-}
-div.amazonassociateset {
-    font-size: 8pt;
-    margin: 10px;
-    background-color: gainsboro;
-
-    text-align:center;
-    width: 200px;
-}
-div.ai {
-    border: 1px solid oklch(80% 0.03 250);
-    width: 86%;
-    margin: 0%;
-    padding: 0% 9% 0% 3%;
-}
-*/
-
-div.ai {
+div.qs {
   margin-block: 1rem;
   padding: 1rem;
   border: 1px solid #b8d4ff;
@@ -99,14 +58,13 @@ div.ai {
   background: #f5f9ff;
 }
 
-/* title属性の値をラベルとして表示 */
-/*div.ai::before {*/
-div.ai::after {
+/* data-label属性の値をラベルとして表示 */
+/* quote, summary */
+div.qs::after {
   content: attr(data-label);
   display: block;
   width: fit-content;
   margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
-  /*margin-bottom: 0.6rem;*/
   padding: 0.1rem 0.4rem;
 
   border-radius: 999px;
@@ -118,7 +76,7 @@ div.ai::after {
   line-height: 1.5;
 }
 
-.ai p {
+div.qs p {
   margin: 0;
 }
 
