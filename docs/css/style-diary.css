@@ -80,6 +80,8 @@ div.qs p {
     margin: 0;
 }
 div.qs div.href {
+  display: block;
+  width: fit-content;
     font-size: 9pt;
   margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
     font-style: oblique 20deg;
