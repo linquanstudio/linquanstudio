@@ -81,8 +81,7 @@ div.qs p {
 }
 div.qs div.href {
     font-size: 9pt;
-    margin-top: 0pt;
-    text-align: right;
+  margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
     font-style: oblique 20deg;
     color: darkolivegreen;
     background-color: red;
