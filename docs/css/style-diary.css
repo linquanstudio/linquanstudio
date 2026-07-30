@@ -60,14 +60,14 @@ div.qs {
 
 /* data-label属性の値をラベルとして表示 */
 /* quote, summary */
-div.qs::after {
+div.qs::before {
   content: attr(data-label);
   display: block;
   width: fit-content;
   margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
   padding: 0.1rem 0.4rem;
 
-  border-radius: 999px;
+  /* border-radius: 999px; */
   background: #2a6af0;
   color: #fff;
 
