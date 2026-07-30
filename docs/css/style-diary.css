@@ -36,7 +36,7 @@ code {
 }
 blockquote {
     font-family: ui-monospace;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 div.imgset {
