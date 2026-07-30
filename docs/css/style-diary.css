@@ -83,7 +83,7 @@ div.qs div.href {
   display: block;
   width: fit-content;
     font-size: 9pt;
-  margin: 0.75rem 0 0.75rem auto; /* 左をautoにして右寄せ */
+  margin: 0rem 0 0.75rem auto; /* 左をautoにして右寄せ */
   padding: 0.1rem 0.4rem;
     font-style: oblique 20deg;
     color: darkolivegreen;
