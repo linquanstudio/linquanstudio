@@ -77,8 +77,17 @@ div.qs::before {
 }
 
 div.qs p {
-  margin: 0;
+    margin: 0;
 }
+div.qs div.href {
+    font-size: 9pt;
+    margin-top: 0pt;
+    text-align: right;
+    font-style: oblique 20deg;
+    color: darkolivegreen;
+    background-color: red;
+}
+
 
 /*
 div.medium {
