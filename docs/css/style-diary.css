@@ -105,7 +105,8 @@ div.ai::after {
   content: attr(data-label);
   display: block;
   width: fit-content;
-  margin-bottom: 0.6rem;
+  margin: 0 0 0.75rem auto; /* 左をautoにして右寄せ */
+  /*margin-bottom: 0.6rem;*/
   padding: 0.1rem 0.4rem;
 
   border-radius: 999px;
@@ -117,11 +118,11 @@ div.ai::after {
   line-height: 1.5;
 }
 
-/*
 .ai p {
   margin: 0;
 }
 
+/*
 div.medium {
     text-align:center;
     width: 380px;
