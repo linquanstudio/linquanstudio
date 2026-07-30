@@ -100,7 +100,8 @@ div.ai {
 }
 
 /* title属性の値をラベルとして表示 */
-div.ai::before {
+/*div.ai::before {*/
+div.ai::after {
   content: attr(data-label);
   display: block;
   width: fit-content;
@@ -111,7 +112,7 @@ div.ai::before {
   background: #2563eb;
   color: #fff;
 
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 700;
   line-height: 1.5;
 }
