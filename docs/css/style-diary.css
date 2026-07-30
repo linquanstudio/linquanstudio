@@ -105,12 +105,12 @@ div.ai::after {
   content: attr(data-label);
   display: block;
   width: fit-content;
-  margin: 0 0 0.75rem auto; /* 左をautoにして右寄せ */
+  margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
   /*margin-bottom: 0.6rem;*/
   padding: 0.1rem 0.4rem;
 
   border-radius: 999px;
-  background: #2563eb;
+  background: #2a6af0;
   color: #fff;
 
   font-size: 0.65rem;
