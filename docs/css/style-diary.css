@@ -95,7 +95,7 @@ div.ai {
   margin-block: 1rem;
   padding: 1rem;
   border: 1px solid #b8d4ff;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   background: #f5f9ff;
 }
 
@@ -104,14 +104,14 @@ div.ai::before {
   content: attr(data-label);
   display: block;
   width: fit-content;
-  margin-bottom: 0.75rem;
-  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.6rem;
+  padding: 0.1rem 0.4rem;
 
   border-radius: 999px;
   background: #2563eb;
   color: #fff;
 
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-weight: 700;
   line-height: 1.5;
 }
