@@ -51,55 +51,43 @@ div.imgset {
 }
 
 div.qs {
-  margin-block: 1rem;
-  padding: 1rem;
-  border: 1px solid #b8d4ff;
-  border-radius: 0.3rem;
-  background: #f5f9ff;
+    margin-block: 1rem;
+    padding: 1rem;
+    border: 1px solid #b8d4ff;
+    border-radius: 0.3rem;
+    background: #f5f9ff;
 }
 
 /* data-label属性の値をラベルとして表示 */
 /* quote, summary */
 div.qs::after {
-  content: attr(data-label);
-  display: block;
-  width: fit-content;
-  margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
-  padding: 0.1rem 0.4rem;
+    content: attr(data-label);
+    display: block;
+    width: fit-content;
+    margin: 0.75rem 0 0 auto; /* 左をautoにして右寄せ */
+    padding: 0.1rem 0.4rem;
 
-  border-radius: 999px;
-  background: #2a6af0;
-  color: #fff;
+    border-radius: 999px;
+    background: #2a6af0;
+    color: #fff;
 
-  font-size: 0.65rem;
-  font-weight: 700;
-  line-height: 1.5;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 div.qs p {
     margin: 0;
 }
 div.qs div.href {
-  display: block;
-  width: fit-content;
+    display: block;
+    width: fit-content;
     font-size: 9pt;
-  margin: 0rem 0 0.75rem auto; /* 左をautoにして右寄せ */
-  padding: 0.1rem 0.4rem;
+    margin: 0rem 0 0.75rem auto; /* 左をautoにして右寄せ */
+    padding: 0.1rem 0.4rem;
     font-style: oblique 20deg;
     color: darkolivegreen;
 }
-
-
-/*
-div.medium {
-    text-align:center;
-    width: 380px;
-    float: right;
-}
-div.media {
-    width: auto;
-}
-*/
 iframe {
     margin: 4pt;
 }
