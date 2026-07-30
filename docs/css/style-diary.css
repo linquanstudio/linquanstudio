@@ -60,7 +60,7 @@ div.qs {
 
 /* data-label属性の値をラベルとして表示 */
 /* quote, summary */
-div.qs::before {
+div.qs::after {
   content: attr(data-label);
   display: block;
   width: fit-content;
