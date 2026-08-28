@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/2009/01/12/1050247448.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image" content="https://i.imgur.com/BLw8zZu.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="UbuntuでFLETS-SPOTに接続するとネットワークが無効になるトラブル解決" />
+<meta property="og:description" content="mixi日記から転載 id=1050247448" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://i.imgur.com/BLw8zZu.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="description" content="mixi日記から転載 id=1050247448">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<title>UbuntuでFLETS-SPOTに接続するとネットワークが無効になるトラブル解決 - 2009-01-12 16:06:00+09:00</title>
+
+<link rel="stylesheet" href="../../../../css/style.css">
+<link rel="stylesheet" href="../../../../css/style-diary.css">
+<link rel="stylesheet" href="../../../../css/codehilite.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2009/01/12/1050289086.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2009/01/11/1049328777.html">→</a></span>
+    
+        2009-01-12 16:06:00+09:00
+        
+</div>
+
+<div class="tags">
+日記 . mixi
+</div>
+
+<div class="title">
+<h1><a href="https://linquanstudio.github.io/linquanstudio/diary/2009/01/12/1050247448.html" target="_blank">UbuntuでFLETS-SPOTに接続するとネットワークが無効になるトラブル解決</a></h1>
+<div class="subtitle">mixi日記から転載 id=1050247448</div>
+</div>
+
+<div class="content">
+<p>
+ どうやら大体流れは掴めた模様。
+</p>
+<p>
+ FLETS-SPOTに接続するには、
+</p>
+<ol>
+ <li>
+  FLETS-SPOTのアクセスポイントに接続
+ </li>
+ <li>
+  接続した無線インタフェースを使ってPPPoE接続
+ </li>
+</ol>
+<p>
+ の二段階を経るが、その接続、設定に関わる各プログラムの連携がうまく取れていないのが原因らしい。
+</p>
+<p>
+ そもそもPPPoEに限らず、ネットワークの接続は、
+</p>
+<ol>
+ <li>
+  システム起動時の(おそらく)NetworkManagerによる接続
+ </li>
+ <li>
+  Gnomeデスクトップ上のNetworkManagerアプレットによる接続
+ </li>
+</ol>
+<p>
+ の二段階になる。コントロールするのは、/etc/network/interfaces内の各インタフェースによる記述。
+</p>
+<p>
+ このファイルに何かしら設定が書かれているインタフェース（初期状態ではループバックインタフェースlo0のみ）は、システム起動時に設定される。自動設定ならばNetworkManagerアプレット上では「システム設定」にチェックが入ってAutoになる。手動設定ならばunmanagedで、アプレット上では「管理されていません」と表示され触ることができない。
+</p>
+<p>
+ FLETS-SPOTのアクセスポイントを認識させて、DHCPでなく「リンクローカルのみ」の設定で接続できるようにするまでは、問題ない。無線LANはNetworkManagerアプレットがアクセスポイントを検索し、アプレット上の設定を使って接続する。
+</p>
+<p>
+ この後、pppoeconfを使ってPPPoEの設定をおこなうと、dsl-providerの設定ファイルを作成する他に、/etc/network/interfacesに、
+</p>
+<hr/>
+<p>
+ iface dsl-provider inet ppp
+pre-up /sbin/ifconfig eth1 up # line maintained by pppoeconf
+provider dsl-provider
+</p>
+<p>
+ auto eth1
+iface eth1 inet manual
+</p>
+<hr/>
+<p>
+ という設定項目を追加してしまう。このため、アプレット側ではシステム起動時の設定と認識され「管理されていません」となって接続できなくなる、というわけ。
+</p>
+<p>
+ pppoeconfで設定した後に、追加された行を削除してしまえば、再起動しても無線LANが繋がった後でponコマンドでPPPoEを繋げばネット接続できるようになる。
+</p>
+<p>
+ うーん、わかってみればなんてことないな。
+linuxにウブだから、ってだけか＾＾；
+</p>
+<p>
+ FreeBSDならこういうアララなトラブルは…、いやいや、そういうことを言うのはやめよう。
+</p>
+<p>
+ さて、家かえろ。
+</p>
+
+</div>
+
+<div class="footer">
+
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2009/01/12/1050289086.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2009/01/11/1049328777.html">→</a></span>
+    
+        2009-01-12 16:06:00+09:00
+        
+</div>
+
+<div class="thumbnail">
+<img src="https://i.imgur.com/BLw8zZu.png" />
+</div>
+
+</body>
+
+</html>
