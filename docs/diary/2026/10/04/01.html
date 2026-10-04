@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ja">
+
+<head
+prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+<meta property="og:url" content="https://linquanstudio.github.io/linquanstudio/diary/2026/10/04/01.html" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hayashiisme">
+<meta name="twitter:creator" content="@hayashiisme">
+<meta name="twitter:image" content="https://64.media.tumblr.com/62828de4abb2ba2d7756bc99453494d8/f3fa729391f93cd5-cf/s540x810/dce98c0546940696ee8c4b00c0cf720ec532073d.pnj" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ライブとDAW制作連携フロー" />
+<meta property="og:description" content="のためのMIDI入力機器+iPhone+Audio I/F" />
+<meta property="og:site_name" content="林泉商店" />
+<meta property="og:image" content="https://64.media.tumblr.com/62828de4abb2ba2d7756bc99453494d8/f3fa729391f93cd5-cf/s540x810/dce98c0546940696ee8c4b00c0cf720ec532073d.pnj" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="description" content="のためのMIDI入力機器+iPhone+Audio I/F">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<title>ライブとDAW制作連携フロー - 2026-10-04 19:37:00+09:00</title>
+
+<link rel="stylesheet" href="../../../../css/style.css">
+<link rel="stylesheet" href="../../../../css/style-diary.css">
+<link rel="stylesheet" href="../../../../css/codehilite.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2006/01/07/71912441.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2026/09/21/02.html">→</a></span>
+    
+        2026-10-04 19:37:00+09:00
+        
+</div>
+
+<div class="tags">
+音 . 材
+</div>
+
+<div class="title">
+<h1><a href="https://linquanstudio.github.io/linquanstudio/diary/2026/10/04/01.html" target="_blank">ライブとDAW制作連携フロー</a></h1>
+<div class="subtitle">のためのMIDI入力機器+iPhone+Audio I/F</div>
+</div>
+
+<div class="content">
+<p>
+ MPK mini Play、Ableton Note、ZOOM AMS-24を想定したライブ&amp;制作の連携フローを考える。
+</p>
+<p>
+ ![iPhone SE (Ableton Note) + MPK mini Play ライブ＆制作連携フロー図][01_01.svg]
+</p>
+<p>
+ それ以外の機材のオススメを挙げてもらった。
+</p>
+<h2>
+ 1.
+ 1. USBハブ（セルフパワー給電）比較
+</h2>
+<table>
+ <thead>
+  <tr>
+   <th style="text-align: left;">
+    製品タイプ
+   </th>
+   <th style="text-align: left;">
+    給電方式
+   </th>
+   <th style="text-align: left;">
+    ポート数
+   </th>
+   <th style="text-align: left;">
+    ライブ時の利点
+   </th>
+   <th style="text-align: left;">
+    注意点・リスク
+   </th>
+   <th style="text-align: center;">
+    ライブ推奨度
+   </th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     セルフパワー対応 4ポートUSBハブ (採用)
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    外部ACアダプタ / USB給電ポート付属
+   </td>
+   <td style="text-align: left;">
+    4ポート (USB-A)
+   </td>
+   <td style="text-align: left;">
+    MPK mini PlayとZOOM AMS-24の両方へ十分な電流を供給。電圧降下ゼロ。
+   </td>
+   <td style="text-align: left;">
+    ハブ用の給電ケーブル（またはアダプタ）が1本増える。
+   </td>
+   <td style="text-align: center;">
+    ★★★★★
+   </td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     バスパワー専用 小型USBハブ
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    iPhoneからの給電のみ
+   </td>
+   <td style="text-align: left;">
+    2〜4ポート
+   </td>
+   <td style="text-align: left;">
+    軽量で配線がシンプル。
+   </td>
+   <td style="text-align: left;">
+    電流不足でAMS-24やMPKの動作が停止する致命的リスクあり。ライブ使用不可。
+   </td>
+   <td style="text-align: center;">
+    ★☆☆☆☆
+   </td>
+  </tr>
+ </tbody>
+</table>
+<hr/>
+<h2>
+ 2.
+ 2. 電源供給（モバイルバッテリー / USB充電器）比較
+</h2>
+<table>
+ <thead>
+  <tr>
+   <th style="text-align: left;">
+    タイプ
+   </th>
+   <th style="text-align: left;">
+    推奨仕様
+   </th>
+   <th style="text-align: left;">
+    ポート構成
+   </th>
+   <th style="text-align: left;">
+    メリット
+   </th>
+   <th style="text-align: left;">
+    デメリット / 注意点
+   </th>
+   <th style="text-align: center;">
+    ライブ推奨度
+   </th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     多ポートUSB急速充電器 (AC電源)
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    20W〜65W (Anker製等)
+   </td>
+   <td style="text-align: left;">
+    USB-A / USB-C × 2口以上
+   </td>
+   <td style="text-align: left;">
+    ステージ電源から無制限に安定供給。長時間のステージやリハーサルでも安心。
+   </td>
+   <td style="text-align: left;">
+    ステージ足元にACタップ（コンセント）が必要。
+   </td>
+   <td style="text-align: center;">
+    ★★★★★
+   </td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     大容量モバイルバッテリー
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    10000mAh〜20000mAh (PD対応)
+   </td>
+   <td style="text-align: left;">
+    2ポート同時出力 (合計15W以上)
+   </td>
+   <td style="text-align: left;">
+    電源コンセントのない場所でも完全ワイヤレス運用可能。電源ノイズ混入を防止。
+   </td>
+   <td style="text-align: left;">
+    バッテリー残量管理が必要。低電流モード非対応バッテリーだと自動停止する場合あり。
+   </td>
+   <td style="text-align: center;">
+    ★★★★☆
+   </td>
+  </tr>
+ </tbody>
+</table>
+<hr/>
+<h2>
+ 3.
+ 3. 出力ケーブル（AMS-24 ➔ ライブハウスDI / PA）比較
+</h2>
+<table>
+ <thead>
+  <tr>
+   <th style="text-align: left;">
+    ケーブル種類
+   </th>
+   <th style="text-align: left;">
+    プラグ形状
+   </th>
+   <th style="text-align: left;">
+    伝送方式
+   </th>
+   <th style="text-align: left;">
+    音質・ノイズ耐性
+   </th>
+   <th style="text-align: left;">
+    特徴
+   </th>
+   <th style="text-align: center;">
+    ライブ推奨度
+   </th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     TRSフォーン ➔ XLRオス (またはTRS ➔ TRS)
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    3極ステレオ標準プラグ (バランス)
+   </td>
+   <td style="text-align: left;">
+    バランス伝送
+   </td>
+   <td style="text-align: left;">
+    極めて高い (長距離でも外来ノイズ激減)
+   </td>
+   <td style="text-align: left;">
+    AMS-24の性能をフルに発揮。ステージ上の照明ノイズ・電源ノイズに最も強い。
+   </td>
+   <td style="text-align: center;">
+    2本（L/R用）用意が必要。PA側DIの入力端子仕様を要確認。
+   </td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">
+    <strong>
+     TSフォーン ➔ TSフォーン (通常ギターシールド)
+    </strong>
+   </td>
+   <td style="text-align: left;">
+    2極モノラル標準プラグ (アンバランス)
+   </td>
+   <td style="text-align: left;">
+    アンバランス伝送
+   </td>
+   <td style="text-align: left;">
+    普通 (長距離配線でノイズを拾いやすい)
+   </td>
+   <td style="text-align: left;">
+    入手性が高くライブハウスどこにでもある。
+   </td>
+   <td style="text-align: center;">
+    バランス伝送の恩恵を受けられないため、音質・S/N比がTRSより低下する。
+   </td>
+  </tr>
+ </tbody>
+</table>
+
+</div>
+
+<div class="footer">
+
+    <span class="prev"><a href="https://linquanstudio.github.io/linquanstudio/diary/2006/01/07/71912441.html">←</a></span>
+    <span class="top"><a href="https://linquanstudio.github.io/linquanstudio/diary/index.html">↑</a></span>
+    <span class="next"><a href="https://linquanstudio.github.io/linquanstudio/diary/2026/09/21/02.html">→</a></span>
+    
+        2026-10-04 19:37:00+09:00
+        
+</div>
+
+<div class="thumbnail">
+<img src="https://64.media.tumblr.com/62828de4abb2ba2d7756bc99453494d8/f3fa729391f93cd5-cf/s540x810/dce98c0546940696ee8c4b00c0cf720ec532073d.pnj" />
+</div>
+
+</body>
+
+</html>
