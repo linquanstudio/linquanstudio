@@ -7,14 +7,15 @@ body {
 }
 .index_1 {
     color: lightsteelblue;
+    font-size: 16pt;
 }
 .index_2 {
     color: indigo;
-    font-size: 13pt;
+    font-size: 14pt;
 }
 .index_3 {
-    color: slateblue;
-    font-size: 12pt;
+    color: mediumvioletred;
+    font-size: 14pt;
 }
 .index_4 {
     color: darkslategray;
