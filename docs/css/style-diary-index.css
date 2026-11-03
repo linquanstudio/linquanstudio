@@ -27,7 +27,7 @@ body {
 }
 */
 .index_5::before {
-    content: '</br>';
+    content: '\n';
 }
 
 .public {
