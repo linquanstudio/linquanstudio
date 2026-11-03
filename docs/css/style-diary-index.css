@@ -21,15 +21,14 @@ body {
     font-size: 9pt;
 }
 
-/*
 .index_5::before {
-    content: ' . ';
+    content: '  ..  ';
 }
-*/
+/*
 .index_5::before {
     content: '\n';
 }
-
+*/
 .public {
     color: darkslategray;
 }
