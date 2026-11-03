@@ -10,12 +10,14 @@ body {
 }
 .index_2 {
     color: steelblue;
+    font-size: 12pt;
 }
 .index_3 {
     color: lightslategray;
 }
 .index_4 {
-    color: skyblue;
+    color: darkslategray;
+    font-size: 11pt;
 }
 .index_5 {
     font-size: 9pt;
