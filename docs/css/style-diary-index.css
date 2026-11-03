@@ -25,12 +25,12 @@ body {
 .index_5::before {
     content: '  ..  ';
 }
-*/
 
 .index_5::before {
     content: '\A';
     white-space: pre;
 }
+*/
 
 .public {
     color: darkslategray;
