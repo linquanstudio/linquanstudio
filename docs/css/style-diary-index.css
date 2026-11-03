@@ -21,14 +21,17 @@ body {
     font-size: 9pt;
 }
 
+/*
 .index_5::before {
     content: '  ..  ';
 }
-/*
-.index_5::before {
-    content: '\n';
-}
 */
+
+.index_5::before {
+    content: '\A';
+    white-space: pre;
+}
+
 .public {
     color: darkslategray;
 }
